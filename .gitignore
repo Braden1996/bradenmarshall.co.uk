@@ -1,8 +1,8 @@
 # My additions
 .idea/
-.sass-cache/
-bower_components/
-node_modules/
+/.sass-cache/
+/bower_components/
+/node_modules/
 *.sqlite3
 src/braden_marshall/settings.py
 
