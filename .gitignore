@@ -1,8 +1,10 @@
 # My additions
+.idea/
+.sass-cache/
+bower_components/
+node_modules/
 *.sqlite3
 src/braden_marshall/settings.py
-node_modules/
-bower_components/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
