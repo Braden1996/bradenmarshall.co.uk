@@ -1,0 +1,14 @@
+/*
+ Description: Main components of site.
+ Author: Braden Marshall
+*/
+// Config
+$m-block-color-bg: #FFFFFF;
+
+// Main
+.block {
+
+  &--fill{
+    background-color: $m-block-color-bg;
+  }
+}

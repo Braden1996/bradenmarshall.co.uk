@@ -1,0 +1,19 @@
+{
+  "name": "Braden Marshall",
+  "version": "0.0.0",
+  "authors": [
+    "Braden1996 <braden1996@hotmail.co.uk>"
+  ],
+  "license": "MIT",
+  "homepage": "www.bradenmarshall.co.uk",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2"
+  }
+}
