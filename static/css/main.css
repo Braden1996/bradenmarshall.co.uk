@@ -6294,36 +6294,21 @@ th.hide-for-touch {
 @media not print {
   .show-for-print {
     display: none !important; } }
-html {
-  position: relative;
-  min-height: 100%; }
+html, body {
+  width: 100%;
+  height: 100%; }
 
 body {
-  color: purple; }
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: -webkit-linear-gradient(left top, #58488a, #6299c9);
-    background: linear-gradient(to right bottom, #58488a, #6299c9);
-    z-index: -1; }
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: url("/static//img/braden_marshall/static/img/tiles/2d-squares.png");
-    z-index: 2; }
+  background: url("/static//img/braden_marshall/static/img/tiles/2d-squares.png"), -webkit-linear-gradient(left top, #58488a, #6299c9);
+  background: url("/static//img/braden_marshall/static/img/tiles/2d-squares.png"), linear-gradient(to right bottom, #58488a, #6299c9); }
 
 /*
  Description: Main components of site.
  Author: Braden Marshall
 */
+#l-site__footer {
+  padding: 32px; }
+
 /*
  Description: Main components of site.
  Author: Braden Marshall
@@ -6340,18 +6325,39 @@ body {
   min-height: 480px; }
 
 /*
- Description: A big 'hero' box.
+ Description: A centered rotated square for logos.
  Author: Braden Marshall
 */
-.m-stickyfooter {
-  height: 100%; }
-  .m-stickyfooter__wrap {
-    min-height: 100%;
-    margin-bottom: -256px; }
-  .m-stickyfooter__wrap:after {
-    content: "";
-    display: block; }
-  .m-stickyfooter__wrap:after, .m-stickyfooter__footer {
-    height: 256px; }
-  .m-stickyfooter__footer {
-    background: orange; }
+.m-logorow {
+  width: 100%;
+  height: 24px;
+  position: relative; }
+  .m-logorow__box {
+    position: absolute;
+    width: 85.5458px;
+    height: 85.5458px;
+    background-color: #f2f2f2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.4);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center; }
+    .m-logorow__box__logo {
+      width: 85.5458px;
+      height: 85.5458px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+      -webkit-transform-origin: center;
+          -ms-transform-origin: center;
+              transform-origin: center; }
