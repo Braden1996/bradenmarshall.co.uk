@@ -1,166 +1,164 @@
-/*!
- * gulp
- * $ npm install gulp-bower merge2 gulp-coffee gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-rename gulp-cache del --save-dev
- */
+var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
+var bowerlib = require('bower-files')();
+var coffee = require('gulp-coffee');
+var concat = require('gulp-concat');
+var del = require('del');
+var gzip = require('gulp-gzip');
+var runSequence = require('run-sequence');
+var sass = require('gulp-ruby-sass');
+var minifycss = require('gulp-minify-css');
+var watch = require('gulp-watch');
+var shell = require('gulp-shell');
+var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
 
-var gulp = require('gulp'),
-    bower = require('gulp-bower')
-    merge2 = require('merge2'),
-    coffee = require('gulp-coffee'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename'),
-    cache = require('gulp-cache'),
-    del = require('del');
+var DIR_BOWER = 'bower_components';;
 
-var STATIC_URL = 'static';
+var DIR_SRC = 'src/**/static';
+var DIR_DEST = 'static';;
 
-var CONFIG = {
-  PATHS: {
-    STYLES: {
-      FILENAME: 'main.css',
-      DEST: 'static/css',
+var DIR_PROJECT = 'src/braden_marshall';
+var DIR_SRC_PROJECT = DIR_PROJECT + '/assets';
+var DIR_DEST_PROJECT = DIR_PROJECT + '/static';
 
-      CSS: {
-        SRC: ['src/**/static/css/**/*.css'],
-        WATCH: 'src/**/static/css/**/*.css'
-      },
+var OPTIONS = {
+  COLLECTSTATIC: {
+    watch: 'src/**/static/**/*.*'
+  },
 
-      SCSS: {
-        SRC: ['src/braden_marshall/static/scss/main.scss'],
-        INCLUDE: ['./bower_components/foundation/scss'],
-        WATCH: 'src/**/static/scss/**/*.scss'
-      }
-    },
+  CSS: {
+    src: DIR_DEST + '/**/css/**/*.css',
+    dest: DIR_DEST,
+    watch: DIR_DEST + '/**/css/**/*.css'
+  },
 
-    SCRIPTSHEAD: {
-      FILENAME: 'mainhead.js',
-      DEST: 'static/js',
-
-      COFFEE: {
-        SRC: ['src/**/static/coffeehead/**/*.coffee'],
-      },
-
-      JS: {
-        SRC: ['./bower_components/modernizr/modernizr.js'],
-      }
-    },
-
-    SCRIPTSBODY: {
-      FILENAME: 'main.js',
-      DEST: 'static/js',
-
-      COFFEE: {
-        SRC: ['src/**/static/coffee/**/*.coffee'],
-      },
-
-      JS: {
-        SRC: ['./bower_components/fastclick/lib/fastclick.js',
-              './bower_components/jquery/dist/jquery.js',
-              './bower_components/jquery.cookie/jquery.cookie.js',
-              './bower_components/jquery-placeholder/jquery-placeholder.js',
-              './bower_components/foundation/js/foundation.js',
-              'src/**/static/js/**/*.js']
-      }
-    },
-
-    IMG: {
-      SRC: ['src/**/static/img/**/*'],
-      DEST: 'static/img'
+  SCSS: {
+    src: DIR_SRC_PROJECT + '/scss/main.scss',
+    dest: DIR_DEST_PROJECT + '/css',
+    filename: 'main.css',
+    watch: DIR_SRC_PROJECT + 'assets/scss/main.scss',
+    config: {
+      compass: true,
+      loadPath: [
+        DIR_BOWER + '/foundation/scss',
+        DIR_BOWER + '/mathsass'
+      ]
     }
+  },
+
+  BOWERJS: {
+    dest: DIR_DEST_PROJECT + '/js',
+    filename: 'lib.js',
+  },
+
+  JS: {
+    src: DIR_DEST + '/**/js/**/*.js',
+    dest: DIR_DEST,
+    watch: DIR_DEST + '/**/js/**/*.js'
+  },
+
+  COFFEE: {
+    src: DIR_SRC_PROJECT + '/coffee/**/*.coffee',
+    dest: DIR_DEST_PROJECT + '/js',
+    filename: 'main.js',
+    watch: DIR_SRC_PROJECT + '/coffee/**/*.coffee'
+  },
+
+  GZIP: {
+    threshold: '1kb',
+    gzipOptions: {
+      level: 9
+    }
+  },
+
+  DEL: {
+    build: DIR_DEST_PROJECT,
+    production: DIR_DEST + '/*'
   }
 };
 
-gulp.task('bower', function() { 
-    return bower()
-         .pipe(gulp.dest(config.bowerDir)) 
+// Delete task
+gulp.task('deletebuild', function() {
+  del(OPTIONS.DEL['build']);
 });
 
-gulp.task('styles', function() {
-  return merge2(gulp.src(CONFIG.PATHS.STYLES.CSS.SRC),
-      sass(CONFIG.PATHS.STYLES.SCSS.SRC, {
-        loadPath: CONFIG.PATHS.STYLES.SCSS.INCLUDE
-      })
-      .on('error', function (err) {
-            console.error('SASS Compile Error:', err.message);
-      })
-    )
-    .pipe(autoprefixer('last 2 version'))
-    .pipe(concat(CONFIG.PATHS.STYLES.FILENAME))
-    .pipe(gulp.dest(CONFIG.PATHS.STYLES.DEST))
-    .pipe(rename({suffix: '.min'}))
+gulp.task('deleteprod', function() {
+  del(OPTIONS.DEL['production']);
+});
+
+gulp.task('delete', ['deletebuild', 'deleteprod']);
+
+// Execute collectstatic
+gulp.task('collectstatic', shell.task([
+  'python src/manage.py collectstatic --noinput'
+]));
+
+// Compile our CSS
+gulp.task('css', function() {
+  return gulp.src(OPTIONS.CSS['src'])
+    .pipe(autoprefixer())
     .pipe(minifycss())
-    .pipe(gulp.dest(CONFIG.PATHS.STYLES.DEST))
+    .pipe(gulp.dest(OPTIONS.CSS['dest']));
 });
 
-function pipeJS(fileName, destinationPath, obj){
-  return obj
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    .pipe(concat(fileName))
-    .pipe(gulp.dest(destinationPath))
-    .pipe(rename({suffix: '.min'}))
+// Compile our SCSS
+gulp.task('scss', function() {
+  return sass(OPTIONS.SCSS['src'], OPTIONS.SCSS['config'])
+    .on('error', gutil.log)
+    .pipe(gulp.dest(OPTIONS.SCSS['dest']));
+});
+
+// Compile Bower JavaScript
+gulp.task('bowerjs', function() {
+  return gulp.src(bowerlib.ext('js').files)
+    .pipe(concat(OPTIONS.BOWERJS['filename']))
+    .pipe(gulp.dest(OPTIONS.BOWERJS['dest']));
+});
+
+// Compile our JavaScript
+gulp.task('js', function() {
+  return gulp.src(OPTIONS.JS['src'])
     .pipe(uglify())
-    .pipe(gulp.dest(destinationPath));
-}
-
-gulp.task('scriptshead', function() {
-  return pipeJS(CONFIG.PATHS.SCRIPTSHEAD.FILENAME, CONFIG.PATHS.SCRIPTSHEAD.DEST,
-    merge2(gulp.src(CONFIG.PATHS.SCRIPTSHEAD.JS.SRC),
-      gulp.src(CONFIG.PATHS.SCRIPTSHEAD.COFFEE.SRC)
-        .pipe(coffee())
-        .on('error', function (err) {
-              console.error('Coffee Compile Error:', err.message);
-        })
-    ));
+    .pipe(gulp.dest(OPTIONS.JS['dest']));
 });
 
-gulp.task('scriptsbody', function() {
-  return pipeJS(CONFIG.PATHS.SCRIPTSBODY.FILENAME, CONFIG.PATHS.SCRIPTSBODY.DEST,
-    merge2(gulp.src(CONFIG.PATHS.SCRIPTSBODY.JS.SRC),
-      gulp.src(CONFIG.PATHS.SCRIPTSBODY.COFFEE.SRC)
-        .pipe(coffee())
-        .on('error', function (err) {
-              console.error('Coffee Compile Error:', err.message);
-        })
-    ));
+// Compile our CoffeeScript
+gulp.task('coffee', function() {
+  return gulp.src(OPTIONS.COFFEE['src'])
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(concat(OPTIONS.COFFEE['filename']))
+    .pipe(gulp.dest(OPTIONS.COFFEE['dest']));
 });
 
-gulp.task('scripts', function() {
-  return gulp.start('scriptshead', 'scriptsbody')
+// Execute all our development tasks
+gulp.task('buildapp', ['deletebuild'], function(){
+  runSequence(
+    ['scss', 'coffee', 'bowerjs']
+  );
 });
 
-gulp.task('images', function() {
-  return gulp.src(CONFIG.PATHS.IMG.SRC)
-    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-    .pipe(gulp.dest(CONFIG.PATHS.IMG.DEST))
+// Execute all our production tasks
+gulp.task('buildprod', ['deleteprod'], function(){
+  runSequence(
+    'collectstatic',
+    ['css', 'js']
+  );
 });
 
-gulp.task('clean', function(cb) {
-    return del([CONFIG.PATHS.STYLES.DEST,
-      CONFIG.PATHS.SCRIPTSHEAD.DEST,
-      CONFIG.PATHS.SCRIPTSBODY.DEST,
-      CONFIG.PATHS.IMG.DEST], cb);
+// Default task
+gulp.task('default', function() {
+  runSequence(
+    'buildapp',
+    'buildprod'
+  );
 });
 
-gulp.task('default', ['clean'], function() {
-    return gulp.start('styles', 'scripts', 'images');
-});
-
-gulp.task('watch', function() {
-  gulp.watch(CONFIG.PATHS.STYLES.CSS.WATCH, ['styles']);
-  gulp.watch(CONFIG.PATHS.STYLES.SCSS.WATCH, ['styles']);
-
-  gulp.watch(CONFIG.PATHS.SCRIPTSHEAD.JS.SRC, ['scriptshead']);
-  gulp.watch(CONFIG.PATHS.SCRIPTSHEAD.COFFEE.SRC, ['scriptshead']);
-
-  gulp.watch(CONFIG.PATHS.SCRIPTSBODY.JS.SRC, ['scriptsbody']);
-  gulp.watch(CONFIG.PATHS.SCRIPTSBODY.COFFEE.SRC, ['scriptsbody']);
-
-  gulp.watch(CONFIG.PATHS.IMG.SRC, ['images']);
+// Watch Files For Changes
+gulp.task('watch', ['default'], function() {
+  gulp.watch(OPTIONS.COLLECTSTATIC['watch'], ['collectstatic']);
+  gulp.watch(OPTIONS.CSS['watch'], ['css']);
+  gulp.watch(OPTIONS.SCSS['watch'], ['scss']);
+  gulp.watch(OPTIONS.JS['watch'], ['js']);
+  gulp.watch(OPTIONS.COFFEE['watch'], ['coffee']);
 });

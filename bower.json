@@ -15,5 +15,13 @@
   ],
   "dependencies": {
     "foundation": "~5.5.2"
+  },
+  "overrides": {
+    "modernizr": {
+      "main": "./modernizr.js"
+    }
+  },
+  "devDependencies": {
+    "mathsass": "~0.9.5"
   }
 }

@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='base.html'), name='home')
 ]
 
-if settings.DEBUG:
-    urlpatterns += staticfiles_urlpatterns()
+#if settings.DEBUG:
+#    urlpatterns += staticfiles_urlpatterns()

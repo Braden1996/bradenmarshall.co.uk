@@ -1,18 +1,35 @@
 {
+  "name": "bradenmarshall.co.uk",
+  "version": "1.0.0",
+  "description": "Braden Marshall's personal website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Braden1996/bradenmarshall.co.uk.git"
+  },
+  "author": "Braden Marshall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Braden1996/bradenmarshall.co.uk/issues"
+  },
+  "homepage": "https://github.com/Braden1996/bradenmarshall.co.uk#readme",
   "devDependencies": {
+    "bower-files": "^3.9.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
-    "gulp-bower": "0.0.10",
-    "gulp-cache": "^0.2.10",
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.6.0",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-jshint": "^1.11.2",
+    "gulp-gzip": "^1.2.0",
     "gulp-minify-css": "^1.2.0",
-    "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^1.0.5",
+    "gulp-shell": "^0.4.2",
     "gulp-uglify": "^1.2.0",
-    "merge2": "^0.3.6"
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.4",
+    "run-sequence": "^1.1.2"
   }
 }
