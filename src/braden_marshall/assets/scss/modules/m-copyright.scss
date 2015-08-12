@@ -1,0 +1,18 @@
+/*
+ Description: A copyright stamp to be placed at the end of a footer.
+ Author: Braden Marshall
+*/
+// Config
+$m-copyright-bg: $l-site-footer-bg;
+$m-copyright-font-color: mix($l-site-footer-font-color, $l-site-footer-bg, 60%);
+
+// Main
+.m-copyright {
+  padding-top: 32px;
+
+  background-color: $m-copyright-bg;
+
+  &, &__name{
+    color: $m-copyright-font-color;
+  }
+}

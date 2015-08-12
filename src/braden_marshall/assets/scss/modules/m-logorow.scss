@@ -1,0 +1,60 @@
+/*
+ Description: A row which contains a centered rotated square with a logo.
+ Author: Braden Marshall
+*/
+// Config
+$m-logorow-height: 24px;
+$m-logorow-size: ceil((pow($m-logorow-height, 1.61803398875)) / 2);
+$m-logorow-border-size: ceil($m-logorow-size - ($m-logorow-height * 1.5));
+$m-logorow-color-bg: $body-bg;
+$m-logorow-color-logo-bg: darken($m-logorow-color-bg, 5%);
+
+// Main
+.m-logorow {
+  position: relative;
+
+  box-sizing: initial;
+  width: 100%;
+  height: $m-logorow-height;
+
+  border-top: $m-logorow-border-size $m-logorow-color-bg solid;
+  border-bottom: $m-logorow-border-size $m-logorow-color-bg solid;
+
+  &__box {
+    position: absolute;
+    top: -(($m-logorow-size - $m-logorow-height) / 2);
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: $m-logorow-size;
+    height: $m-logorow-size;
+    margin: auto;
+
+    &__bg {
+      width: 100%;
+      height: 100%;
+
+      transform: rotate(45deg);
+      transform-origin: center;
+
+      background-color: $m-logorow-color-logo-bg;
+      box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.4);
+    }
+
+
+    &__logo {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+
+      width: 100%;
+      height: pow(5, 2);
+
+      text-align: center;
+
+      font-size: 4em;
+      line-height: $m-logorow-size;
+    }
+  }
+}
