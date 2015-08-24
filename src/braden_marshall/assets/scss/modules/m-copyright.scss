@@ -10,9 +10,21 @@ $m-copyright-font-color: mix($l-site-footer-font-color, $l-site-footer-bg, 60%);
 .m-copyright {
   padding-top: 32px;
 
+  text-align: center;
+
   background-color: $m-copyright-bg;
 
   &, &__name{
     color: $m-copyright-font-color;
+  }
+
+  &__name{
+    text-decoration: none;
+
+    &:hover{
+      color: darken($m-copyright-font-color, 20%);
+
+      font-weight: bold;
+    }
   }
 }

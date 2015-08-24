@@ -17,10 +17,6 @@ $l-site-footer-font-color: $body-font-color;
 
   &__header {
 
-    &--{
-      margin-bottom: 32px;
-    }
-    
     > nav {
       max-width: $row-width;
       margin-right: auto;
@@ -28,8 +24,22 @@ $l-site-footer-font-color: $body-font-color;
 
       @include single-transition(background-color, 500ms);
 
-      > .top-bar-section .dropdown{
-        @include single-transition(background-color, 500ms);
+      > .title-area {
+        > .name a{
+          text-decoration: none;
+        }
+      }
+
+      > .top-bar-section {
+        ul > li{
+          > a {
+            text-decoration: none;
+          }
+
+          > ul.dropdown{
+            @include single-transition(background-color, 500ms);
+          }
+        }
       }
     }
 

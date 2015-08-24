@@ -1,8 +1,8 @@
 $static-url: "/static/base/";
 
-
 // Base
-@import "base/functions.scss",
+@import "_math.scss",
+        "base/functions.scss",
         "base/mixins.scss",
         "foundation/settings",
         "base/base.scss";

@@ -6,10 +6,9 @@ var concat = require('gulp-concat');
 var del = require('del');
 var gzip = require('gulp-gzip');
 var runSequence = require('run-sequence');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var minifycss = require('gulp-minify-css');
 var watch = require('gulp-watch');
-var shell = require('gulp-shell');
 var uglify = require('gulp-uglify');
 var gutil = require('gulp-util');
 
@@ -23,10 +22,6 @@ var DIR_SRC_PROJECT = DIR_PROJECT + '/assets';
 var DIR_DEST_PROJECT = DIR_PROJECT + '/static';
 
 var OPTIONS = {
-  COLLECTSTATIC: {
-    watch: 'src/**/static/**/*.*'
-  },
-
   CSS: {
     src: DIR_DEST + '/**/css/**/*.css',
     dest: DIR_DEST,
@@ -37,12 +32,11 @@ var OPTIONS = {
     src: DIR_SRC_PROJECT + '/scss/main.scss',
     dest: DIR_DEST_PROJECT + '/css',
     filename: 'main.css',
-    watch: DIR_SRC_PROJECT + 'assets/scss/main.scss',
+    watch: DIR_SRC_PROJECT + '/scss/**/*.scss',
     config: {
-      compass: true,
-      loadPath: [
+      includePaths: [
         DIR_BOWER + '/foundation/scss',
-        DIR_BOWER + '/mathsass'
+        DIR_BOWER + '/mathsass/dist'
       ]
     }
   },
@@ -73,14 +67,13 @@ var OPTIONS = {
   },
 
   DEL: {
-    build: DIR_DEST_PROJECT,
     production: DIR_DEST + '/*'
   }
 };
 
 // Delete task
 gulp.task('deletebuild', function() {
-  del(OPTIONS.DEL['build']);
+  //del(OPTIONS.DEL['build']);
 });
 
 gulp.task('deleteprod', function() {
@@ -88,11 +81,6 @@ gulp.task('deleteprod', function() {
 });
 
 gulp.task('delete', ['deletebuild', 'deleteprod']);
-
-// Execute collectstatic
-gulp.task('collectstatic', shell.task([
-  'python src/manage.py collectstatic --noinput'
-]));
 
 // Compile our CSS
 gulp.task('css', function() {
@@ -104,8 +92,8 @@ gulp.task('css', function() {
 
 // Compile our SCSS
 gulp.task('scss', function() {
-  return sass(OPTIONS.SCSS['src'], OPTIONS.SCSS['config'])
-    .on('error', gutil.log)
+  return gulp.src(OPTIONS.SCSS['src'])
+    .pipe(sass(OPTIONS.SCSS['config']).on('error', gutil.log))
     .pipe(gulp.dest(OPTIONS.SCSS['dest']));
 });
 
@@ -141,7 +129,6 @@ gulp.task('buildapp', ['deletebuild'], function(){
 // Execute all our production tasks
 gulp.task('buildprod', ['deleteprod'], function(){
   runSequence(
-    'collectstatic',
     ['css', 'js']
   );
 });
@@ -156,9 +143,8 @@ gulp.task('default', function() {
 
 // Watch Files For Changes
 gulp.task('watch', ['default'], function() {
-  gulp.watch(OPTIONS.COLLECTSTATIC['watch'], ['collectstatic']);
-  gulp.watch(OPTIONS.CSS['watch'], ['css']);
   gulp.watch(OPTIONS.SCSS['watch'], ['scss']);
-  gulp.watch(OPTIONS.JS['watch'], ['js']);
   gulp.watch(OPTIONS.COFFEE['watch'], ['coffee']);
+  gulp.watch(OPTIONS.CSS['watch'], ['css']);
+  gulp.watch(OPTIONS.JS['watch'], ['js']);
 });

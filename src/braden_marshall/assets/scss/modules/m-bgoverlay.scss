@@ -3,12 +3,12 @@
  Author: Braden Marshall
 */
 // Config
-$m-bgoverlay-over-bg: url(static('img/tiles/2d-squares.png')) fixed;
+$m-bgoverlay-over-bg: url(static('img/squares.png')) fixed;
 $m-bgoverlay-under-bg: linear-gradient(to right bottom, #EB9532,  #F9690E);
 
 // Main
 .m-bgoverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
