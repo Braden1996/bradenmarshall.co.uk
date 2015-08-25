@@ -3,28 +3,25 @@
  Author: Braden Marshall
 */
 // Config
-$m-copyright-bg: $l-site-footer-bg;
-$m-copyright-font-color: mix($l-site-footer-font-color, $l-site-footer-bg, 60%);
+$m-copyright-background-color: $l-site__footer-background-color;
+$m-copyright-font-color: mix($l-site__footer-font-color, $m-copyright-background-color, 60%);
 
 // Main
 .m-copyright {
   padding-top: 32px;
-
   text-align: center;
+  background-color: $m-copyright-background-color;
 
-  background-color: $m-copyright-bg;
-
-  &, &__name{
+  &, &__name {
     color: $m-copyright-font-color;
   }
 
-  &__name{
+  &__name {
     text-decoration: none;
 
-    &:hover{
-      color: darken($m-copyright-font-color, 20%);
-
+    &:hover {
       font-weight: bold;
+      color: darken($m-copyright-font-color, 20%);
     }
   }
 }

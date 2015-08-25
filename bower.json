@@ -14,7 +14,8 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "~5.5.2"
+    "modernizr": "~2.8.3",
+    "normalize-css": "normalize.css#~3.0.3"
   },
   "overrides": {
     "modernizr": {
@@ -22,6 +23,9 @@
     }
   },
   "devDependencies": {
-    "mathsass": "~0.9.5"
+    "bitters": "~1.0.0",
+    "bourbon": "~4.2.4",
+    "mathsass": "~0.9.5",
+    "neat": "~1.7.2"
   }
 }

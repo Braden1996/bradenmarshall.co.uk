@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/Braden1996/bradenmarshall.co.uk#readme",
   "devDependencies": {
-    "bower-files": "^3.9.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",

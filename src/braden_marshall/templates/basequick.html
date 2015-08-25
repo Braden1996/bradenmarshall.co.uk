@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block basecontent %}
+  <div class="block block--fill">
+    <div class="row">
+      {% block basequickcontent %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}
+
+{% comment %}
+**basequick.html**
+
+Extends from our base.html to allow for the creation of quick and easy
+template creation.
+{% endcomment %}

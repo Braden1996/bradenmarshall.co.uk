@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Braden Marshall</title>
+    <title>{% block title %}Braden Marshall{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="{% static 'base/css/main.css' %}" rel="stylesheet" type="text/css" />
   </head>
@@ -22,7 +22,11 @@
             <li class="name">
               <h1><a href="#">Braden Marshall</a></h1>
             </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+            <li class="toggle-topbar menu-icon">
+              <a href="#">
+                <span></span>
+              </a>
+            </li>
           </ul>
 
           <section class="top-bar-section">
@@ -31,87 +35,38 @@
               <li><a href="#">Blog</a></li>
               <li><a href="#">Projects</a></li>
               {% if user.is_authenticated %}
-                <li class="has-dropdown">
-                  <a href="#">My Account</a>
-                  <ul class="dropdown">
-                    <li><a href="/users/braden1996">Profile</a></li>
-                    <li><a href="/users/braden1996/dashboard">Dashboard</a></li>
-                    <li><a href="/users/braden1996/settings">Settings</a></li>
-                  </ul>
-                </li>
+              <li class="has-dropdown">
+                <a href="#">My Account</a>
+                <ul class="dropdown">
+                  <li><a href="/users/braden1996">Profile</a></li>
+                  <li><a href="/users/braden1996/dashboard">Dashboard</a></li>
+                  <li><a href="/users/braden1996/settings">Settings</a></li>
+                </ul>
+              </li>
               {% else %}
-                <li><a href="/account/register/">Register</a></li>
-                <li><a href="/account/login/">Login</a></li>
+              <li><a href="/account/register/">Register</a></li>
+              <li><a href="/account/login/">Login</a></li>
               {% endif %}
             </ul>
           </section>
         </nav>
       </header>
 
-      <div class="m-hero">
-      </div>
+      {% block precontent %} {% endblock %}
 
       <section id="l-site__content">
         <main id="l-site__content__main">
+          {% block basecontent %}
           <div class="block block--fill">
             <div class="row">
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
-              <div class="small-12 medium-6 columns">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                </p>
-              </div>
             </div>
           </div>
+          {% endblock %}
         </main>
 
-        <aside id="l-site__content__aside">
-
-        </aside>
+        <aside id="l-site__content__aside"></aside>
       </section>
+
       <div class="m-logorow">
         <div class="m-logorow__box">
           <div class="m-logorow__box__bg"></div>
@@ -120,19 +75,19 @@
       </div>
 
       <footer id="l-site__footer">
-        <div class="row">
-          <ul class="small-block-grid-3">
-            <li>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </li>
-            <li>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries!
-            </li>
-            <li>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </li>
-          </ul>
-        </div>
+        <ul class="row">
+          <li class="col-sm-4">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          </li>
+          <li class="col-sm-4">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries!
+          </li>
+          <li class="col-sm-4">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </li>
+        </ul>
 
         <div class="m-copyright text-center">
           &copy; {% now "Y" %} <a class="m-copyright__name" href="http://www.bradenmarshall.co.uk/">Braden Marshall</a>. All rights reserved
@@ -140,7 +95,7 @@
       </footer>
 
     </div>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
     <script src="{% static 'base/js/lib.js' %}" type="text/javascript"></script>
     <script src="{% static 'base/js/main.js' %}" type="text/javascript"></script>

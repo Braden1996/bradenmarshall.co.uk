@@ -4,70 +4,25 @@
  Dependencies: Foundation 5
 */
 // Config
-$l-site-topbar-fixed-bg: rgba($topbar-bg-color, 0.85);
-$l-site-topbar-fixed-dropdown-bg: rgba($topbar-bg-color, 0.5);
-
-$l-site-content-bg: $body-bg;
-$l-site-footer-bg: $body-bg;
-$l-site-footer-font-color: $body-font-color;
+$l-site__content-background-color: $base-background-color;
+$l-site__content-font-color: $base-font-color;
+$l-site__footer-background-color: $l-site__content-background-color;
+$l-site__footer-font-color: $l-site__content-font-color;
 
 // Main
 #l-site {
   position: relative;
-
-  &__header {
-
-    > nav {
-      max-width: $row-width;
-      margin-right: auto;
-      margin-left: auto;
-
-      @include single-transition(background-color, 500ms);
-
-      > .title-area {
-        > .name a{
-          text-decoration: none;
-        }
-      }
-
-      > .top-bar-section {
-        ul > li{
-          > a {
-            text-decoration: none;
-          }
-
-          > ul.dropdown{
-            @include single-transition(background-color, 500ms);
-          }
-        }
-      }
-    }
-
-    &.fixed > nav {
-      background-color: $l-site-topbar-fixed-bg;
-
-      > .top-bar-section .dropdown{
-        background-color: $l-site-topbar-fixed-dropdown-bg;
-      }
-    }
-  }
-
-
   &__content {
-
     &__main {
-      border-top: 32px solid $l-site-content-bg;
-    }
-
-
-    &__aside {
-
+      margin-top: 24px;
+      color: $l-site__content-font-color;
+      border-top: 32px solid $l-site__content-background-color;
     }
   }
 
 
   &__footer {
-    color: $l-site-footer-font-color;
-    background-color: $l-site-footer-bg;
+    color: $l-site__footer-font-color;
+    background-color: $l-site__footer-background-color;
   }
 }

@@ -3,12 +3,11 @@
  Author: Braden Marshall
 */
 // Config
-$m-block-fill-bg: $body-bg;
+$m-block--fill-background-color: $l-site__content-background-color;
 
 // Main
 .block {
-
-  &--fill{
-    background-color: $m-block-fill-bg;
+  &--fill {
+    background-color: $m-block--fill-background-color;
   }
 }

@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
-var bowerlib = require('bower-files')();
 var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
 var del = require('del');
@@ -12,10 +11,10 @@ var watch = require('gulp-watch');
 var uglify = require('gulp-uglify');
 var gutil = require('gulp-util');
 
-var DIR_BOWER = 'bower_components';;
+var DIR_BOWER = 'bower_components';
 
 var DIR_SRC = 'src/**/static';
-var DIR_DEST = 'static';;
+var DIR_DEST = 'static';
 
 var DIR_PROJECT = 'src/braden_marshall';
 var DIR_SRC_PROJECT = DIR_PROJECT + '/assets';
@@ -35,13 +34,19 @@ var OPTIONS = {
     watch: DIR_SRC_PROJECT + '/scss/**/*.scss',
     config: {
       includePaths: [
-        DIR_BOWER + '/foundation/scss',
-        DIR_BOWER + '/mathsass/dist'
+        DIR_BOWER + "/normalize-css",
+        DIR_BOWER + "/mathsass/dist",
+        DIR_BOWER + "/bourbon/app/assets/stylesheets/",
+        DIR_BOWER + "/bitters/app/assets/stylesheets/",
+        DIR_BOWER + "/neat/app/assets/stylesheets/"
       ]
     }
   },
 
   BOWERJS: {
+    src: [
+      DIR_BOWER + "/modernizr/modernizr.js",
+    ],
     dest: DIR_DEST_PROJECT + '/js',
     filename: 'lib.js',
   },
@@ -99,7 +104,7 @@ gulp.task('scss', function() {
 
 // Compile Bower JavaScript
 gulp.task('bowerjs', function() {
-  return gulp.src(bowerlib.ext('js').files)
+  return  gulp.src(OPTIONS.BOWERJS['src'])
     .pipe(concat(OPTIONS.BOWERJS['filename']))
     .pipe(gulp.dest(OPTIONS.BOWERJS['dest']));
 });

@@ -36,8 +36,9 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^rest/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^account/', include('registration.backends.default.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^$', TemplateView.as_view(template_name='base.html'), name='home')
 ]
