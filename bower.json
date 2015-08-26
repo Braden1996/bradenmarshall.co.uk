@@ -13,14 +13,16 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "modernizr": "~2.8.3",
-    "normalize-css": "normalize.css#~3.0.3"
-  },
   "overrides": {
     "modernizr": {
-      "main": "./modernizr.js"
+      "main": "modernizr.js"
     }
+  },
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-parallax": "~0.0.2",
+    "modernizr": "~2.8.3",
+    "normalize-css": "normalize.css#~3.0.3"
   },
   "devDependencies": {
     "bitters": "~1.0.0",

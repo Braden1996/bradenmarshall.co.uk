@@ -6,6 +6,7 @@ var del = require('del');
 var gzip = require('gulp-gzip');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
+var mainBowerFiles = require('main-bower-files');
 var minifycss = require('gulp-minify-css');
 var watch = require('gulp-watch');
 var uglify = require('gulp-uglify');
@@ -44,9 +45,6 @@ var OPTIONS = {
   },
 
   BOWERJS: {
-    src: [
-      DIR_BOWER + "/modernizr/modernizr.js",
-    ],
     dest: DIR_DEST_PROJECT + '/js',
     filename: 'lib.js',
   },
@@ -104,7 +102,7 @@ gulp.task('scss', function() {
 
 // Compile Bower JavaScript
 gulp.task('bowerjs', function() {
-  return  gulp.src(OPTIONS.BOWERJS['src'])
+  return gulp.src(mainBowerFiles(["**/*.js"]))
     .pipe(concat(OPTIONS.BOWERJS['filename']))
     .pipe(gulp.dest(OPTIONS.BOWERJS['dest']));
 });
@@ -119,7 +117,7 @@ gulp.task('js', function() {
 // Compile our CoffeeScript
 gulp.task('coffee', function() {
   return gulp.src(OPTIONS.COFFEE['src'])
-    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(coffee().on('error', gutil.log))
     .pipe(concat(OPTIONS.COFFEE['filename']))
     .pipe(gulp.dest(OPTIONS.COFFEE['dest']));
 });
