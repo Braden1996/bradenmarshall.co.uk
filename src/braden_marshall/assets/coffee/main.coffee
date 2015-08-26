@@ -1,1 +1,1 @@
-$(document).foundation()
+app = angular.module("mainApp", ["visuals"])

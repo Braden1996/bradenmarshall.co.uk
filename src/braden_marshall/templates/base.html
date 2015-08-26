@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="mainApp">
 
   <head>
     <meta charset="utf-8"/>
@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    <div class="m-bgoverlay">
-      <div class="m-bgoverlay__over" data-parallax data-parallaxspeed="10"></div>
+    <div class="m-bgoverlay" ng-controller="parallaxController">
+      <div class="m-bgoverlay__over" parallax-background parallax-ratio="0.2"></div>
     </div>
 
     <div id="l-site">
