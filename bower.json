@@ -25,9 +25,8 @@
     "normalize-css": "normalize.css#~3.0.3"
   },
   "devDependencies": {
-    "bitters": "~1.0.0",
-    "bourbon": "~4.2.4",
+    "compass-breakpoint": "~2.6.1",
     "mathsass": "~0.9.5",
-    "neat": "~1.7.2"
+    "susy": "~2.2.5"
   }
 }
