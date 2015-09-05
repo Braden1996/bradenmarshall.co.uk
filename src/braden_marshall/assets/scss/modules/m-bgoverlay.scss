@@ -1,14 +1,14 @@
 /*
- Description: A simple module to apply a gradient ontop of a background image
  Author: Braden Marshall
+ Description: A simple module to apply a gradient ontop of a background image
 */
 // Config
 $m-bgoverlay-over-bg: url(static('img/squares.png')) fixed;
-$m-bgoverlay-under-bg: linear-gradient(to right bottom, #EB9532,  #F9690E);
+$m-bgoverlay-under-bg: linear-gradient(to bottom, #EB9532,  #F9690E);
 
 // Main
 .m-bgoverlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
