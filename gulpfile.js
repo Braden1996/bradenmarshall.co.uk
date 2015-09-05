@@ -5,9 +5,10 @@ var coffeelint = require('gulp-coffeelint');
 var concat = require('gulp-concat');
 var del = require('del');
 var gzip = require('gulp-gzip');
+var livereload = require('gulp-livereload');
+var minifycss = require('gulp-minify-css');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
-var minifycss = require('gulp-minify-css');
 var watch = require('gulp-watch');
 var uglify = require('gulp-uglify');
 var gutil = require('gulp-util');
@@ -39,11 +40,7 @@ var OPTIONS = {
     watch: DIR_SRC_PROJECT + '/scss/**/*.scss',
     config: {
       includePaths: [
-        DIR_BOWER + "/normalize-css",
-        DIR_BOWER + "/mathsass/dist",
-        DIR_BOWER + "/bourbon/app/assets/stylesheets/",
-        DIR_BOWER + "/bitters/app/assets/stylesheets/",
-        DIR_BOWER + "/neat/app/assets/stylesheets/"
+        DIR_BOWER
       ]
     }
   },
@@ -75,22 +72,22 @@ var OPTIONS = {
 };
 
 
-// Safely Log Errors
+// Safely Handle Errors
 function swallowError(error){
-  notifier.notify({
-    'title': 'Gulp: an error has occured!',
-    'message': error.stack
-  });
-  gutil.log(gutil.colors.red('Error'), error);
-  this.end();
+  var title = 'Gulp: ' + error.plugin + ' has encountered an error!';
+  var message = error.message;
+  gutil.log(error.toString());
+  notifier.notify({'title': title, 'message': message});
+  this.emit('end');
 }
 
 
-// Stylesheets (CSS & SCSS)
+// Stylesheets (SCSS & CSS)
 gulp.task('scss', function() {
   return gulp.src(OPTIONS.SCSS['src'])
     .pipe(sass(OPTIONS.SCSS['config']).on('error', swallowError))
-    .pipe(gulp.dest(OPTIONS.SCSS['dest']));
+    .pipe(gulp.dest(OPTIONS.SCSS['dest']))
+    .pipe(livereload());
 });
 
 gulp.task('css', function() {
@@ -105,14 +102,15 @@ gulp.task('css', function() {
 gulp.task('coffeelint', function() {
   return gulp.src(OPTIONS.COFFEE['src'])
     .pipe(coffeelint())
-    .pipe(coffeelint.reporter('coffeelint-stylish'))
+    .pipe(coffeelint.reporter('coffeelint-stylish'));
 });
 
 gulp.task('coffee', ['coffeelint'], function() {
   return gulp.src(OPTIONS.COFFEE['src'])
     .pipe(coffee().on('error', swallowError))
     .pipe(concat(OPTIONS.COFFEE['filename']))
-    .pipe(gulp.dest(OPTIONS.COFFEE['dest']));
+    .pipe(gulp.dest(OPTIONS.COFFEE['dest']))
+    .pipe(livereload());
 });
 
 
@@ -170,6 +168,7 @@ gulp.task('delete', ['deletebuild', 'deleteprod']);
 
 // Watch Files For Changes
 gulp.task('watch', ['default'], function() {
+  livereload.listen();
   gulp.watch(OPTIONS.SCSS['watch'], ['scss']);
   gulp.watch(OPTIONS.COFFEE['watch'], ['coffee']);
   gulp.watch(OPTIONS.CSS['watch'], ['css']);
