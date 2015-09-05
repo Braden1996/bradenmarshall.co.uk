@@ -1,0 +1,23 @@
+// Colors
+$base-color-background: #F5F5F5;
+$base-color-shadow: rgba(lighten(black, 20%), 0.7);
+$base-color-font: #292927;
+
+// Constants
+$base-constant-golden: 1.6180339887498948482;
+
+// Breakpoints
+$base-breakpoint-mobile: 20.000rem; // >= 320px;
+$base-breakpoint-mobile-lg: 30.063rem; // >= 481px;
+$base-breakpoint-tablet: 40.063rem; // >= 641px;
+$base-breakpoint-tablet-lg: 60.063rem; // >= 961px;
+$base-breakpoint-desktop: 64.063rem; // >= 1025px;
+$base-breakpoint-desktop-lg: 85.438rem; // >= 1367px;
+$base-breakpoint-desktop-xlg: 100.063rem; // >= 1601px;
+
+// Susy
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  container: $base-breakpoint-desktop,
+);
