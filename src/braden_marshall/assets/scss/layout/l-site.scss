@@ -1,28 +1,62 @@
 /*
  Author: Braden Marshall
- Description: Main layout components of the site
- Dependencies: Foundation 5
+ Description: Main layout components of the site.
 */
 // Config
-$l-site__content-background-color: $base-background-color;
-$l-site__content-font-color: $base-font-color;
-$l-site__footer-background-color: $l-site__content-background-color;
-$l-site__footer-font-color: $l-site__content-font-color;
+
+$l-site-breakpoint-mobile: $base-breakpoint-mobile;
+$l-site-breakpoint-tablet: $base-breakpoint-tablet;
+$l-site-breakpoint-desktop: $base-breakpoint-desktop-lg;
+
+$l-site-width-max: $l-site-breakpoint-desktop;
+
+$l-site__content-border-width: 8px;
+$l-site__content-border-width--tablet: 24px;
+$l-site__content-color-font: $base-color-font;
+$l-site__content-color-border: #ffffff;
+$l-site__content-color-background: $base-color-background;
+
+$l-site__footer-border-width: $l-site__content-border-width;
+$l-site__footer-border-width--tablet: 24px;
+$l-site__footer-color-border: $l-site__content-color-border;
+$l-site__footer-color-font: $l-site__content-color-font;
+
+$l-site__header-color-font: $base-color-font;
+$l-site__header-color-font--hover: darken($base-color-font, 20%);
+$l-site__header--fixed-color-background: $l-site__content-color-border;
+
 
 // Main
 #l-site {
   position: relative;
+  max-width: $l-site-width-max;
+  margin-right: auto;
+  margin-left: auto;
+
   &__content {
     &__main {
-      margin-top: 24px;
-      color: $l-site__content-font-color;
-      border-top: 32px solid $l-site__content-background-color;
+      color: $l-site__content-color-font;
+      border-top: $l-site__content-border-width solid $l-site__content-color-border;
+      border-bottom: $l-site__content-border-width solid $l-site__content-color-border;
+
+      @include breakpoint($l-site-breakpoint-tablet) {
+        border-width: $l-site__content-border-width--tablet;
+      }
+
+      @include breakpoint($l-site-width-max) {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
     }
   }
-
-
   &__footer {
-    color: $l-site__footer-font-color;
-    background-color: $l-site__footer-background-color;
+    color: $l-site__footer-color-font;
+    border-top: $l-site__footer-border-width solid $l-site__footer-color-border;
+    // Check m-copyright.scss
+    // border-bottom: $l-site__footer-border-width solid $l-site__footer-color-border;
+
+    @include breakpoint($l-site-breakpoint-tablet) {
+      border-width: $l-site__footer-border-width--tablet;
+    }
   }
 }

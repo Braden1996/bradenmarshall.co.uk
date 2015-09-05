@@ -1,27 +1,33 @@
 /*
- Description: A copyright stamp to be placed at the end of a footer.
  Author: Braden Marshall
+ Description: A copyright stamp to be placed at the end of a footer.
 */
 // Config
-$m-copyright-background-color: $l-site__footer-background-color;
-$m-copyright-font-color: mix($l-site__footer-font-color, $m-copyright-background-color, 60%);
+$m-copyright-breakpoint-tablet: $l-site-breakpoint-tablet;
+$m-copyright-border-width: $l-site__footer-border-width;
+$m-copyright-border-width--tablet: $l-site__footer-border-width--tablet;
+$m-copyright-color-background: $l-site__footer-color-border;
+$m-copyright-color-font: mix($l-site__footer-color-font, $m-copyright-color-background, 60%);
 
 // Main
 .m-copyright {
-  padding-top: 32px;
+  height: $m-copyright-border-width;
+  line-height: height;
   text-align: center;
-  background-color: $m-copyright-background-color;
+  background-color: $m-copyright-color-background;
 
-  &, &__name {
-    color: $m-copyright-font-color;
+  @include breakpoint($m-copyright-breakpoint-tablet) {
+    height: $m-copyright-border-width--tablet;
+    line-height: height;
   }
-
+  &, &__name {
+    color: $m-copyright-color-font;
+  }
   &__name {
     text-decoration: none;
-
     &:hover {
       font-weight: bold;
-      color: darken($m-copyright-font-color, 20%);
+      color: darken($m-copyright-color-font, 20%);
     }
   }
 }
