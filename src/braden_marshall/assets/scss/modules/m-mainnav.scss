@@ -1,0 +1,250 @@
+/*
+ Author: Braden Marshall
+ Description: A primary navigation menu.
+  It is centered and features a div (for a logo etc) with the
+  navigation links either side.
+ Dependencies:
+  - Susy
+  - Breakpoint
+*/
+
+// Config
+$m-mainnav-padding: 8px;
+$m-mainnav--fixed-color-background: $l-site__header--fixed-color-background;
+$m-mainnav--fixed-color-shadow: $base-color-shadow;
+$m-mainnav__item-padding-tablet: 4px;
+$m-mainnav__item-height: 32px;
+$m-mainnav__item-count: 7;
+$m-mainnav__item-color-font: $l-site__header-color-font;
+$m-mainnav__item-color-font--hover: $l-site__header-color-font--hover;
+$m-mainnav__item--logo-position: 4;
+$m-mainnav__item--logo-width-max: 144px;
+$m-mainnav__item--logo-margin-bottom: -($m-mainnav__item--logo-width-max) + 64px;
+
+$m-mainnav-breakpoint-tablet: $l-site-breakpoint-tablet;
+
+$m-mainnav-break-tablet: (
+  columns: $m-mainnav__item-count
+);
+
+// Main
+.m-mainnav {
+  padding-top: $m-mainnav-padding;
+  padding-bottom: $m-mainnav-padding;
+
+  > ul {
+    @include clearfix;
+  }
+
+  // Mobile devices must click the activate button
+  &--active{
+    .m-mainnav__item{
+      display: block;
+    }
+  }
+
+  // User has scrolled past the header
+  &--fixed {
+    left: 0;
+    right: 0;
+    position: fixed;
+    background-color: $m-mainnav--fixed-color-background;
+    border-bottom: 1px solid darken($m-mainnav--fixed-color-background, 10%);
+
+    > ul {
+      margin-top: 0;
+
+      > .m-mainnav__logo{
+        float: left;
+
+        > strong {
+          display: none;
+        }
+
+        > img {
+          display: none;
+        }
+      }
+    }
+
+    @include breakpoint(max-width $m-mainnav-breakpoint-tablet){
+      &:not(.m-mainnav--active) {
+        transform: translateY(-100%);
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__logo{
+    height: auto;
+    position: relative;
+    text-align: center;
+
+    > strong {
+      display: block;
+      > a {
+        color: $m-mainnav__item-color-font;
+        text-decoration: none;
+      }
+    }
+    
+    > img {
+      width: 100%;
+      max-width: $m-mainnav__item--logo-width-max;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__item{
+    padding-top: 8px;
+    display: none;  // Hide the navigation links by default
+
+    > a {
+      height: $m-mainnav__item-height;
+      display: block;
+      position: relative;
+      text-align: center;
+      font-size: 18px;
+      font-weight: thin;
+      letter-spacing: 2px;
+      color: $m-mainnav__item-color-font;
+      text-decoration: none;
+      overflow-x: hidden;
+      transition: 0.32s ease-out;
+
+      &:before, &:after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        background-color: $m-mainnav__item-color-font;
+      }
+
+      &:after{
+        background-color: $m-mainnav__item-color-font--hover;
+        transition: height 0.32s ease-in-out;
+        visibility: hidden;
+      }
+
+      &:hover{
+        letter-spacing: 3px;
+        color: $m-mainnav__item-color-font--hover;
+        &:after{
+          height: 3px;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  // Tablets and Desktops
+  @include susy-breakpoint($m-mainnav-breakpoint-tablet, $m-mainnav-break-tablet) {
+    > ul {
+      @include container();
+    }
+    
+    &--fixed{
+      display: block;
+
+      > ul {
+        .m-mainnav__logo{
+          position: relative;
+          background-color: $m-mainnav--fixed-color-background;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+          border-bottom: 1px solid darken($m-mainnav--fixed-color-background, 10%);
+          box-shadow: 0px 1px 2px -2px rgba(lighten(black, 20%), 0.7);
+
+          > img {
+            width: auto;
+            max-height: 72px;
+            top: -($m-mainnav-padding);
+            position: relative;
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    &__logo, &__item{
+      @include span(1);
+    }
+  
+    &__logo{
+      @include span(2 at $m-mainnav__item--logo-position - 0.5 isolate);
+      margin-bottom: $m-mainnav__item--logo-margin-bottom;
+      float: none;
+    }
+
+    &__item{
+      display: inline-block;
+
+      &:nth-child(#{$m-mainnav__item--logo-position + 1}){
+        @include push(1);
+      }
+
+      &:first-child{
+        @include first();
+      }
+
+      &:last-child{
+        @include last();
+      }
+
+      &--left, &--right{
+        > a {
+          &:after{
+            transition: height none;
+            transition: transform 0.32s ease-out;
+          }
+        }
+      }
+
+      &--left{
+        > a {
+          text-align: left;
+          padding-left: $m-mainnav__item-padding-tablet;
+
+          &:before{
+            transform: translateX(-$m-mainnav__item-padding-tablet);
+          }
+
+          &:after{
+            transform: translateX(-100%);
+          }
+
+          &:hover{
+            &:after{
+              transform: translateX(-$m-mainnav__item-padding-tablet);
+            }
+          }
+        }
+      }
+      &--right{
+        > a {
+          padding-right: $m-mainnav__item-padding-tablet;
+          text-align: right;
+
+          &:before{
+            transform: translateX($m-mainnav__item-padding-tablet);
+          }
+
+          &:after{
+            transform: translateX(100%);
+          }
+
+          &:hover{
+            &:after{
+              transform: translateX($m-mainnav__item-padding-tablet);
+            }
+          }
+        }
+      }
+    }
+  }
+}
