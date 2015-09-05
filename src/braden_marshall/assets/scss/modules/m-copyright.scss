@@ -18,7 +18,7 @@ $m-copyright-color-font: mix($l-site__footer-color-font, $m-copyright-color-back
 
   @include breakpoint($m-copyright-breakpoint-tablet) {
     height: $m-copyright-border-width--tablet;
-    line-height: height;
+    line-height: $m-copyright-border-width--tablet;
   }
   &, &__name {
     color: $m-copyright-color-font;
