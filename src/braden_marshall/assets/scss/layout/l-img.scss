@@ -1,0 +1,15 @@
+/*
+ Author: Braden Marshall
+ Description: A collection of a few useful classes for images.
+*/
+
+// Config
+
+// Main
+img {
+  &.l-img{
+  	&--fluid{
+    	max-width: 100%;
+	}
+  }
+}
