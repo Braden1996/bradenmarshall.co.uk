@@ -16,6 +16,8 @@ $l-site__content-color-font: $base-color-font;
 $l-site__content-color-border: #ffffff;
 $l-site__content-color-background: $base-color-background;
 
+
+$l-site__footer-margin-bottom: 96px;
 $l-site__footer-border-width: $l-site__content-border-width;
 $l-site__footer-border-width--tablet: 24px;
 $l-site__footer-color-border: $l-site__content-color-border;
@@ -54,6 +56,8 @@ $l-site__header--fixed-color-background: $l-site__content-color-border;
     border-top: $l-site__footer-border-width solid $l-site__footer-color-border;
     // Check m-copyright.scss
     // border-bottom: $l-site__footer-border-width solid $l-site__footer-color-border;
+
+    margin-bottom: $l-site__footer-margin-bottom;
 
     @include breakpoint($l-site-breakpoint-tablet) {
       border-width: $l-site__footer-border-width--tablet;

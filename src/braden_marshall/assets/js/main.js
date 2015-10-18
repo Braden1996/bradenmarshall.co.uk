@@ -1,4 +1,7 @@
-require("jquery");
+// Libraries
 require("modernizr");
+require("jquery");
 
-var a = 6;
+// Visuals
+require("./visuals/mainnav.js");
+require("./visuals/bgoverlay.js");
