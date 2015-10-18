@@ -153,18 +153,11 @@ $m-mainnav-break-tablet: (
 
       > ul {
         .m-mainnav__logo{
-          position: relative;
-          background-color: $m-mainnav--fixed-color-background;
-          border-bottom-left-radius: 50%;
-          border-bottom-right-radius: 50%;
-          border-bottom: 1px solid darken($m-mainnav--fixed-color-background, 10%);
-          box-shadow: 0px 1px 2px -2px rgba(lighten(black, 20%), 0.7);
+          bottom: $m-mainnav-padding;
 
           > img {
             width: auto;
-            max-height: 72px;
-            top: -($m-mainnav-padding);
-            position: relative;
+            height: $m-mainnav__item-height + 3 * $m-mainnav-padding;
             display: inline-block;
           }
         }
