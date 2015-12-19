@@ -43,7 +43,7 @@
               <a href="/#contact">Contact</a>
             </li>
             <li class="m-mainnav__item m-mainnav__item--right">
-              <a href="/#login">Login</a>
+              <a href="{% url "account_login" %}">Login</a>
             </li>
           </ul>
         </nav>
@@ -53,52 +53,58 @@
       {% endblock %}
 
       <section id="l-site__content">
-        <main id="l-site__content__main">
-          {% block basecontent %}
-          <div class="block block--fill">
-            <div class="row">
-              <h1>Hello world...</h1>
-              {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              {% endfor %}
-              <h2>Cool</h2>
-              <p>Fun times...</p>
-            </div>
-          </div>
-          {% endblock %}
-        </main>
+        {% block sitecontent %}
+          <main id="l-site__content__main">
+            {% block maincontent %}
+              <div class="block block--fill">
+                <div class="row">
+                  <h1>Hello world...</h1>
+                  {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  {% endfor %}
+                  <h2>Cool</h2>
+                  <p>Fun times...</p>
+                </div>
+              </div>
+            {% endblock %}
+          </main>
+        {% endblock %}
 
         <aside id="l-site__content__aside"></aside>
       </section>
 
-      <div class="m-logorow">
-        <div class="m-logorow__box">
-          <div class="m-logorow__box__bg"></div>
-          <span class="m-logorow__box__logo fa">B</span>
+      {% block logorow %}
+        <div class="m-logorow">
+          <div class="m-logorow__box">
+            <div class="m-logorow__box__bg"></div>
+            <span class="m-logorow__box__logo fa">B</span>
+          </div>
         </div>
-      </div>
+      {% endblock %}
 
-      <footer id="l-site__footer">
-        <div class="block block--fill">
-          <ul class="m-footerrow l-list--reset">
-            <li class="m-footerrow__item">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </li>
-            <li class="m-footerrow__item">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </li>
-            <li class="m-footerrow__item">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </li>
-          </ul>
-        </div>
+      {% block footer %}
+        <footer id="l-site__footer">
+          <div class="block block--fill">
+            <ul class="m-footerrow l-list--reset">
+              <li class="m-footerrow__item">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </li>
+              <li class="m-footerrow__item">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </li>
+              <li class="m-footerrow__item">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </li>
+            </ul>
+          </div>
 
-        <div class="m-copyright text-center">
-          &copy;
-          {% now "Y" %}
-          <a class="m-copyright__name" href="http://www.bradenmarshall.co.uk/">Braden Marshall</a>. All rights reserved
-        </div>
-      </footer>
+          <div class="m-copyright text-center">
+            &copy;
+            {% now "Y" %}
+            <a class="m-copyright__name" href="http://www.bradenmarshall.co.uk/">Braden Marshall</a>. All rights reserved
+          </div>
+        </footer>
+      {% endblock %}
 
     </div>
 
