@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load account_tags %}
+{% load i18n %}
+
+{% block sitecontent %}
+  <div class="block">
+    <section id="m-loginform">
+      <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+        <div id="m-loginform__title" class="m-loginform__block">
+          <legend>
+            <h1>{% trans "Login" %}</h1>
+          </legend>
+        </div>
+
+        <fieldset>
+          {% csrf_token %}
+
+          <div id="m-loginform__username">
+            <label>
+              <div>
+                <i class="fa fa-user"></i>
+                <span>{% trans "Username" %}</span>
+              </div>
+              {{ form.username }}
+            </label>
+            {{ form.username.errors }}
+          </div>
+
+          <div id="m-loginform__password">
+            <label>
+              <div>
+                <i class="fa fa-lock"></i>
+                <span>{% trans "Password" %}</span>
+              </div>
+              {{ form.password }}
+            </label>
+            {{ form.password.errors }}
+          </div>
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+          <button type="submit" id="m-loginform__submit">{% trans "Log in" %}</button>
+
+          <div id="m-loginform__remember">
+            {{ form.remember.errors }}
+            <label for="id_remember">
+              {{ form.remember }}
+              <span>{% trans "Remember me" %}</span>
+            </label>
+          </div>
+
+          <a href="{% url "account_password_reset" %}" id="m-loginform__forgotpass">{% trans "Forgot password?" %}</a>
+        </fieldset>
+      </form>
+      {% if ACCOUNT_OPEN_SIGNUP %}
+        <div id="m-loginform__signup" class="m-loginform__block">
+          Need an account? <a href="{% urlnext 'account_signup' %}">{% trans "Sign up" %}</a>
+        </div>
+      {% endif %}
+    </section>
+  </div>
+{% endblock %}
+
+
+{% block logorow %} {% endblock %}
+{% block footer %} {% endblock %}
