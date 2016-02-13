@@ -2,8 +2,9 @@ module.exports = {
   prepareBundle: prepareBundle,
   pipeBundle: pipeBundle
 }
+
 var config       = require("../config/javascript");
-var handleErrors = require("../lib/handleErrors");
+var handleErrors = require("../util/handleerrors");
 var browserify   = require("browserify");
 var gulp         = require("gulp");
 var source       = require("vinyl-source-stream");
@@ -15,7 +16,7 @@ function prepareBundle(bundler) {
 
 function pipeBundle(bundler) {
   var b = bundler.bundle()
-    .on("error", handleErrors);
+    .on("error", handleErrors.swallowError);
   return b.pipe(source(config.destinationFilename)) // convert to a stream gulp understands
   .pipe(gulp.dest(config.destination));
 }
