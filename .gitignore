@@ -6,6 +6,7 @@
 static/
 *.sqlite3
 src/braden_marshall/settings.py
+activate.bat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
