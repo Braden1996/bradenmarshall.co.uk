@@ -1,5 +1,4 @@
 var config       = require("../../config/javascript");
-var handleErrors = require("../../lib/handleErrors");
 var javascript   = require("../javascript")
 var browserify   = require("browserify");
 var gulp         = require("gulp");
