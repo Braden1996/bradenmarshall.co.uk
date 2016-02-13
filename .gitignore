@@ -7,6 +7,7 @@ static/
 *.sqlite3
 src/braden_marshall/settings.py
 activate.bat
+bradenmarshall.co.uk.sublime-workspace
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
