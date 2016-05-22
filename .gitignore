@@ -7,6 +7,8 @@
 /bower_components/
 # Project's install Node modules
 /node_modules/
+# Project's Python virtual-environment
+/venv_bradenmarshall/
 # Collected static-files
 static/
 # Project's database - could contain sensitive information
