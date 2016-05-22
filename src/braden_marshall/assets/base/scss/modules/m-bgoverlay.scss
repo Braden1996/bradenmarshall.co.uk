@@ -3,7 +3,7 @@
  Description: A simple module to apply a gradient ontop of a background image
 */
 // Config
-$m-bgoverlay-over-bg: url(static('img/squares.png')) fixed;
+$m-bgoverlay-over-bg: url(static('img/gplay_inverted.png')) fixed;
 $m-bgoverlay-under-bg: linear-gradient(to bottom, #EB9532,  #F9690E);
 
 // Main
@@ -19,12 +19,18 @@ $m-bgoverlay-under-bg: linear-gradient(to bottom, #EB9532,  #F9690E);
   background: $m-bgoverlay-under-bg;
 
   &__over {
+    content: "";
     position: fixed;
 
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+
+    width: 100%;
+    height: 100%;
+
     background: $m-bgoverlay-over-bg;
+    opacity: 0.2;
   }
 }
