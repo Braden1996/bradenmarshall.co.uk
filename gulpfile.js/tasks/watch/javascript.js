@@ -1,10 +1,10 @@
-var config       = require("../../config/javascript");
-var javascript   = require("../javascript")
-var browserify   = require("browserify");
-var gulp         = require("gulp");
-var gutil         = require("gulp-util");
-var assign       = require("lodash.assign");
-var watchify     = require("watchify");
+var config     = require("../../config/javascript");
+var javascript = require("../javascript")
+var browserify = require("browserify");
+var gulp       = require("gulp");
+var gutil      = require("gulp-util");
+var assign     = require("lodash.assign");
+var watchify   = require("watchify");
 
 gulp.task("watch-javascript", function() {
   var bundler = browserify(config.source, assign({
