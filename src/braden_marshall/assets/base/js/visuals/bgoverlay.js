@@ -1,13 +1,13 @@
 $(document).ready(function() {
-  var ele = $(".m-bgoverlay__over");
-  var bgPos = ele.css("backgroundPosition").split(" ");
-  var initialYPos = bgPos[1];
+  let ele = $(".m-bgoverlay__over");
+  let bgPos = ele.css("backgroundPosition").split(" ");
+  let initialYPos = bgPos[1];
 
   function update() {
-    var speed = -0.25;
-    var scrollPos = $(document).scrollTop();
+    let speed = -0.25;
+    let scrollPos = $(document).scrollTop();
 
-    var bgPos = ele.css("backgroundPosition").split(" ");
+    let bgPos = ele.css("backgroundPosition").split(" ");
 
     ele.css("backgroundPosition", bgPos[0] + " " + (parseInt(initialYPos, 10) + (speed * scrollPos)) + "px");
   }   
