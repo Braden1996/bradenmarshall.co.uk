@@ -19,8 +19,8 @@ $m-block--fill-border-width--tablet: $l-site__content-border-width--tablet;
     border-left: $m-block--fill-border-width solid $l-site__content-color-border;
 
     @include breakpoint($m-block-breakpoint-tablet) {
-		border-width: $m-block--fill-border-width--tablet;
-	}
+  		border-width: $m-block--fill-border-width--tablet;
+  	}
   }
 
   &:last-of-type {
