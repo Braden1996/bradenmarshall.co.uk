@@ -5,3 +5,18 @@
     clear: both;
   }
 }
+
+@mixin quickbutton($color, $amount: 3%) {
+	background-color: $color;
+	border-bottom: 3px solid darken($color, $amount);
+	transition: background-color $base-constant-transition ease-out;
+
+	&:hover {
+		background-color: lighten($color, $amount);
+	}
+
+	&:focus {
+		background-color: darken($color, $amount);
+		outline: 0;
+	}
+}

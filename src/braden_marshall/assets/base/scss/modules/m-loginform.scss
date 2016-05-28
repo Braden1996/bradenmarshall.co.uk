@@ -4,22 +4,24 @@
 */
 
 // Config
-$m-loginform-width-max: $l-site-width-max;
+$m-loginform-width-max: $l-site-width-max / 3;
 $m-loginform-margin: 64px;
 $m-loginform-breakpoint-tablet: $l-site-breakpoint-tablet;
 
-$m-loginform-input-height: 40px;
-$m-loginform-input-color-background: #2D4059;
-
 $m-loginform-color-background: $l-site__content-color-background;
 
-$m-loginform__block-color-font: $l-site__content-color-font;
+$m-loginform-input-height: 40px;
+$m-loginform-input-border-radius: 5px;
+$m-loginform-input-color-background: darken($m-loginform-color-background, 2%);
+
+$m-loginform__block-color-background: $base-color-alt-background;
+$m-loginform__block-color-font: $base-color-alt-font;
 
 // Main
 #m-loginform {
   width: 100%;
   margin-bottom: $m-loginform-margin;
-  max-width: $m-loginform-width-max / 3;
+  max-width: $m-loginform-width-max;
   margin-left: auto;
   margin-right: auto;
 
@@ -40,7 +42,8 @@ $m-loginform__block-color-font: $l-site__content-color-font;
 
   .m-loginform__block {
     padding: 6px;
-    background-color: purple;
+    color: $m-loginform__block-color-font;
+    background-color: $m-loginform__block-color-background;
 
     &#m-loginform__title{
       > legend {
@@ -50,6 +53,7 @@ $m-loginform__block-color-font: $l-site__content-color-font;
         > h1 {
           margin-top: 0;
           margin-bottom: 0;
+          text-transform: uppercase;
         }
       }
     }
@@ -79,6 +83,9 @@ $m-loginform__block-color-font: $l-site__content-color-font;
         line-height: $m-loginform-input-height;
         text-align: center;
 
+        border-top-left-radius: $m-loginform-input-border-radius;
+        border-bottom-left-radius: $m-loginform-input-border-radius;
+
         > span {
           display: none;
         }
@@ -87,6 +94,8 @@ $m-loginform__block-color-font: $l-site__content-color-font;
       > input {
         width: 90%;
         border: none;
+        border-top-right-radius: $m-loginform-input-border-radius;
+        border-bottom-right-radius: $m-loginform-input-border-radius;
 
         &:focus {
           outline: none;
@@ -99,7 +108,6 @@ $m-loginform__block-color-font: $l-site__content-color-font;
   }
 
   #m-loginform__password {
-
   }
 
   #m-loginform__remember {
@@ -109,7 +117,10 @@ $m-loginform__block-color-font: $l-site__content-color-font;
   #m-loginform__submit {
     width: 100%;
     display: block;
-    background-color: green;
+    border: 0;
+    color: $base-color-primary-font;
+
+    @include quickbutton($base-color-primary-background);
   }
 
   #m-loginform__forgotpass{

@@ -6,8 +6,15 @@ $base-color-background: #F5F5F5;
 $base-color-shadow: rgba(lighten(black, 20%), 0.7);
 $base-color-font: #292927;
 
+$base-color-alt-background: #2C3E50;
+$base-color-alt-font: #FFFFFF;
+
+$base-color-primary-background: #1abc9c;
+$base-color-primary-font: #ecf0f1;
+
 // Constants
 $base-constant-golden: 1.618;
+$base-constant-transition: 0.32s;
 
 // Breakpoints
 $base-breakpoint-mobile: 20.000rem; // >= 320px;

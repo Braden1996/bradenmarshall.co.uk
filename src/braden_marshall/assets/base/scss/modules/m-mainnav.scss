@@ -113,7 +113,7 @@ $m-mainnav-break-tablet: (
       color: $m-mainnav__item-color-font;
       text-decoration: none;
       overflow-x: hidden;
-      transition: 0.32s ease-out;
+      transition: $base-constant-transition ease-out;
 
       &:before, &:after{
         content: "";
@@ -127,7 +127,7 @@ $m-mainnav-break-tablet: (
 
       &:after{
         background-color: $m-mainnav__item-color-font--hover;
-        transition: height 0.32s ease-in-out;
+        transition: height $base-constant-transition ease-in-out;
         visibility: hidden;
       }
 
@@ -193,7 +193,7 @@ $m-mainnav-break-tablet: (
         > a {
           &:after{
             transition: height none;
-            transition: transform 0.32s ease-out;
+            transition: transform $base-constant-transition ease-out;
           }
         }
       }
