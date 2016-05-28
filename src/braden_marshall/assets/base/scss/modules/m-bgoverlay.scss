@@ -4,7 +4,7 @@
 */
 // Config
 $m-bgoverlay-over-bg: url(static('img/gplay_inverted.png')) fixed;
-$m-bgoverlay-under-bg: linear-gradient(to bottom, #EB9532,  #F9690E);
+$m-bgoverlay-under-bg: linear-gradient(to bottom, $base-color-primary,  $base-color-secondary);
 
 // Main
 .m-bgoverlay {
