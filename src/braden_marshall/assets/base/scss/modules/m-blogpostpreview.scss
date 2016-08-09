@@ -1,0 +1,32 @@
+/*
+ Author: Braden Marshall
+ Description: An area to give an overview/preview of a blog post.
+ Dependencies:
+	- Susy
+	- Breakpoint
+*/
+
+// Config
+$m-footerrow-breakpoint-tablet: $l-site-breakpoint-tablet;
+$m-footerrow-break-tablet: (columns: 3);
+
+// Main
+.m-footerrow {
+	> .m-footerrow__item {}
+
+	@include susy-breakpoint($m-footerrow-breakpoint-tablet, $m-footerrow-break-tablet) {
+		@include container;
+
+		> .m-footerrow__item {
+			@include span(1);
+
+			&:first-of-type {
+				@include first;
+			}
+
+			&:last-of-type {
+				@include last;
+			}
+		}
+	}
+}
