@@ -2,15 +2,15 @@
  Author: Braden Marshall
  Description: The notorious burger menu...
  Dependencies:
-  - Breakpoint
+	- Breakpoint
 */
 
 // Config
 $m-burgermenu-size: 48px;
 $m-burgermenu-gutter: 8px;
 $m-burgermenu-padding: $m-burgermenu-size / 4;
-$m-burgermenu-color-background: #ECF0F1;
-$m-burgermenu-color-shadow: $base-color-shadow;
+$m-burgermenu-color-background: basecolor("background", "light");
+$m-burgermenu-color-shadow: basecolor("background", "dark");
 
 $m-burgermenu__part-spacing: $m-burgermenu-padding / (3 / $base-constant-golden);
 $m-burgermenu__part-height: floor($m-burgermenu-size - 2 * ($m-burgermenu-padding + $m-burgermenu__part-spacing)) / 3;
@@ -25,76 +25,77 @@ $m-burgermenu-hide-breakpoint: $l-site-breakpoint-tablet - 1;
 
 // Main
 .m-burgermenu {
-  display: none;
+	display: none;
 
-  @include breakpoint(max-width $m-burgermenu-hide-breakpoint){
-    top: $m-burgermenu-gutter;
-    right: $m-burgermenu-gutter;
-    width: $m-burgermenu-size;
-    height: $m-burgermenu-size;
-    padding: $m-burgermenu-padding;
-    display: block;
-    position: fixed;
-    background-color: rgba($m-burgermenu-color-background, 0.1);
-    transition: color 0.24s ease-in;
-    border-radius: 4px;
-    box-shadow: 0 0 4px 0px $m-burgermenu-color-shadow;
-    z-index: 99999;
+	@include breakpoint(max-width $m-burgermenu-hide-breakpoint) {
+		top: $m-burgermenu-gutter;
+		right: $m-burgermenu-gutter;
+		width: $m-burgermenu-size;
+		height: $m-burgermenu-size;
+		padding: $m-burgermenu-padding;
+		display: block;
+		position: fixed;
+		background-color: rgba($m-burgermenu-color-background, 0.1);
+		transition: color 0.24s ease-in;
+		border-radius: 4px;
+		box-shadow: 0 0 4px 0px $m-burgermenu-color-shadow;
+		z-index: 99999;
 
-    > span{
-      position: relative;
-      display: inline-block;
+		> span {
+			position: relative;
+			display: inline-block;
 
-      &, &::before, &::after{
-        width: 100%;
-        height: $m-burgermenu__part-height;
-        background-color: $m-burgermenu__part-color-background;
-        transition: all 0.2s ease-out;
-      }
+			&, &::before, &::after {
+				width: 100%;
+				height: $m-burgermenu__part-height;
+				background-color: $m-burgermenu__part-color-background;
+				transition: all 0.2s ease-out;
+			}
 
-      &::before, &::after {
-        content: "";
-        position: absolute;
-      }
+			&::before, &::after {
+				content: "";
+				position: absolute;
+			}
 
-      &::before {
-        top: $m-burgermenu__part-offset;
-      }
+			&::before {
+				top: $m-burgermenu__part-offset;
+			}
 
-      &::after {
-        bottom: $m-burgermenu__part-offset;
-      }
-    }
+			&::after {
+				bottom: $m-burgermenu__part-offset;
+			}
+		}
 
-    &:hover {
-      > span {
-        &::before {
-          top: $m-burgermenu__part-offset--hover;
-        }
+		&:hover {
+			> span {
+				&::before {
+					top: $m-burgermenu__part-offset--hover;
+				}
 
-        &::after {
-          bottom: $m-burgermenu__part-offset--hover;
-        }
-      }
-    }
-  }
+				&::after {
+					bottom: $m-burgermenu__part-offset--hover;
+				}
+			}
+		}
+	}
 }
 
 .#{$m-burgermenu-active-class} > .m-burgermenu {
-  > span {
-    background-color: rgba($m-burgermenu__part-color-background, 0);
+	> span {
+		background-color: rgba($m-burgermenu__part-color-background, 0);
 
-    &::before {
-      top:0;
-      transform: rotateZ(45deg);
-    }
-    &::after {
-      bottom:0;
-      transform: rotateZ(-45deg);
-    }
-  }
+		&::before {
+			top: 0;
+			transform: rotateZ(45deg);
+		}
+
+		&::after {
+			bottom: 0;
+			transform: rotateZ(-45deg);
+		}
+	}
 }
 
 .#{$m-burgermenu-fixed-class} > .m-burgermenu {
-  background-color: rgba($m-burgermenu-color-background, 0.8);
+	background-color: rgba($m-burgermenu-color-background, 0.8);
 }

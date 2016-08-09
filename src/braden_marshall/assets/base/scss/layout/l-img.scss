@@ -7,9 +7,9 @@
 
 // Main
 img {
-  &.l-img{
-  	&--fluid{
-    	max-width: 100%;
+	&.l-img {
+		&.l-img--fluid {
+			max-width: 100%;
+		}
 	}
-  }
 }

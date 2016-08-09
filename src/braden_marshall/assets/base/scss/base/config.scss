@@ -1,16 +1,37 @@
 // Colors
-$base-color-primary: #EB9532;
-$base-color-secondary: #F9690E;
-
-$base-color-background: #F5F5F5;
-$base-color-shadow: rgba(lighten(black, 20%), 0.7);
-$base-color-font: #292927;
-
-$base-color-alt-background: #2C3E50;
-$base-color-alt-font: #FFFFFF;
-
-$base-color-primary-background: #1abc9c;
-$base-color-primary-font: #ecf0f1;
+$base-colors: (
+  "primary": (
+    "base": #434a54,
+    "light": lighten(#434a54, 10%),
+    "dark": #292f33
+  ),
+  "accent": (
+    "base": #1abc9c,
+    "light": lighten(#1abc9c, 10%),
+    "dark": #16a085
+  ),
+  "secondary": (
+    "base": #e6567a,
+    "light": lighten(#e6567a, 10%),
+    "dark": #bf4a67
+  ),
+  "foreground": (
+    "base": #191919,
+    "light": #333333,
+    "dark": #111111,
+    "darker": #000000
+  ),
+  "background": (
+    "base": #f8fcfc,
+    "light": #ffffff,
+    "dark": #dddddd
+  ),
+  "success": (
+    "base": #2ecc71,
+    "light": #41c87a,
+    "dark": #27ae60
+  ),
+);
 
 // Constants
 $base-constant-golden: 1.618;

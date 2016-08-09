@@ -3,35 +3,31 @@
  Description: A row which belongs in the footer and whose items
  contain some neat footer widgets.
  Dependencies:
-  - Susy
-  - Breakpoint
+	- Susy
+	- Breakpoint
 */
 
 // Config
 $m-footerrow-breakpoint-tablet: $l-site-breakpoint-tablet;
-$m-footerrow-break-tablet: (
-  columns: 3
-);
+$m-footerrow-break-tablet: (columns: 3);
 
 // Main
 .m-footerrow {
-  > .m-footerrow__item {
+	> .m-footerrow__item {}
 
-  }
+	@include susy-breakpoint($m-footerrow-breakpoint-tablet, $m-footerrow-break-tablet) {
+		@include container;
 
-  @include susy-breakpoint($m-footerrow-breakpoint-tablet, $m-footerrow-break-tablet) {
-    @include container();
+		> .m-footerrow__item {
+			@include span(1);
 
-    > .m-footerrow__item {
-      @include span(1);
+			&:first-of-type {
+				@include first;
+			}
 
-      &:first-of-type {
-        @include first();
-      }
-
-      &:last-of-type {
-        @include last();
-      }
-    }
-  }
+			&:last-of-type {
+				@include last;
+			}
+		}
+	}
 }

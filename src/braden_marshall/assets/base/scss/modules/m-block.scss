@@ -12,18 +12,18 @@ $m-block--fill-border-width--tablet: $l-site__content-border-width--tablet;
 
 // Main
 .block {
-  &--fill {
-    padding: 10px;
-    background-color: $m-block--fill-color-background;
-    border-right: $m-block--fill-border-width solid $l-site__content-color-border;
-    border-left: $m-block--fill-border-width solid $l-site__content-color-border;
+	&.block--fill {
+		padding: 10px;
+		background-color: $m-block--fill-color-background;
+		border-right: $m-block--fill-border-width solid $l-site__content-color-border;
+		border-left: $m-block--fill-border-width solid $l-site__content-color-border;
 
-    @include breakpoint($m-block-breakpoint-tablet) {
-  		border-width: $m-block--fill-border-width--tablet;
-  	}
-  }
+		@include breakpoint($m-block-breakpoint-tablet) {
+			border-width: $m-block--fill-border-width--tablet;
+		}
+	}
 
-  &:last-of-type {
-  	padding-bottom: 24px;
-  }
+	&:last-of-type {
+		padding-bottom: 24px;
+	}
 }

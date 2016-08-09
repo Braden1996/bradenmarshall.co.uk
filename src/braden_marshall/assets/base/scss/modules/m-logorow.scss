@@ -1,12 +1,14 @@
 /*
  Author: Braden Marshall
- Description: A row which contains a centered rotated square with a logo.
+ Description: A row which contains a centred rotated square with a logo.
 */
 // Config
-$m-logorow-height-unitless: 24;
+$m-logorow-height-unitless: 20;
 $m-logorow-height: $m-logorow-height-unitless * 1px;
-$m-logorow__box-size: ceil(pow($m-logorow-height-unitless, 1.61803398875) / 2) * 1px;
-$m-logorow-border-width: ceil($m-logorow__box-size - ($m-logorow-height * 1.5));
+$m-logorow__box-size: ceil(pow($m-logorow-height-unitless, 1.61803) / 2) * 1px;
+$m-logorow-border-width: ceil($m-logorow__box-size - $m-logorow-height * 1.5);
+
+$m-logorow__box__logo-font-size: 3.5em;
 
 $m-logorow__box__bg-color-background: darken($l-site__content-color-background, 5%);
 
@@ -16,35 +18,35 @@ $m-logorow__box__bg-color-background: darken($l-site__content-color-background, 
   width: 100%;
   height: $m-logorow-height;
   box-sizing: initial;
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0, 0, 0, 0.15);
 
-  &__box {
+  > .m-logorow__box {
     position: absolute;
-    top: -(( $m-logorow__box-size - $m-logorow-height ) / 2);
+    top: -(($m-logorow__box-size - $m-logorow-height) / 2);
     right: 0;
     left: 0;
     width: $m-logorow__box-size;
     height: $m-logorow__box-size;
     margin: auto;
 
-    &__bg {
+    > .m-logorow__box__bg {
       width: 100%;
       height: 100%;
       background-color: $m-logorow__box__bg-color-background;
       box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.4);
-      
+
       html.csstransforms & {
         transform: rotate(45deg);
         transform-origin: center;
       }
     }
 
-    &__logo {
+    > .m-logorow__box__logo {
       position: absolute;
       top: 0;
       z-index: 2;
       width: 100%;
-      font-size: 4em;
+      font-size: $m-logorow__box__logo-font-size;
       line-height: $m-logorow__box-size;
       text-align: center;
     }

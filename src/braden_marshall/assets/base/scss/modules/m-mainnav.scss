@@ -10,234 +10,272 @@
 
 // Config
 $m-mainnav-padding: 8px;
+$m-mainnav-transition-time: $base-constant-transition;
+
+$m-mainnav--fixed-color-shadow: basecolor("background", "dark");
 $m-mainnav--fixed-color-background: $l-site__header--fixed-color-background;
-$m-mainnav--fixed-color-shadow: $base-color-shadow;
-$m-mainnav__item-padding-tablet: 4px;
-$m-mainnav__item-height: 32px;
+
 $m-mainnav__item-count: 7;
+$m-mainnav__item-height: 32px;
+$m-mainnav__item-padding-tablet: 4px;
 $m-mainnav__item-color-font: $l-site__header-color-font;
 $m-mainnav__item-color-font--hover: $l-site__header-color-font--hover;
+
+$m-mainnav--fixed__item-color-font: $l-site__header--fixed-color-font;
+$m-mainnav--fixed__item-color-font--hover: $l-site__header--fixed-color-font--hover;
+
 $m-mainnav__item--logo-position: 4;
 $m-mainnav__item--logo-width-max: 144px;
-$m-mainnav__item--logo-margin-bottom: -($m-mainnav__item--logo-width-max) + 64px;
+$m-mainnav__item--logo-margin-bottom: (-$m-mainnav__item--logo-width-max + 64px) / 2;
 
 $m-mainnav-breakpoint-tablet: $l-site-breakpoint-tablet;
 
-$m-mainnav-break-tablet: (
-  columns: $m-mainnav__item-count
-);
+$m-mainnav-break-tablet: (columns: $m-mainnav__item-count);
 
 // Main
 .m-mainnav {
-  padding-top: $m-mainnav-padding;
-  padding-bottom: $m-mainnav-padding;
+	padding-top: $m-mainnav-padding;
+	padding-bottom: $m-mainnav-padding;
 
-  > ul {
-    @include clearfix;
-  }
+	> ul {
+		@include clearfix;
 
-  // Mobile devices must click the activate button
-  &--active{
-    .m-mainnav__item{
-      display: block;
-    }
-  }
+		> li {
+			&.m-mainnav__logo {
+				height: auto;
+				position: relative;
+				text-align: center;
 
-  // User has scrolled past the header
-  &--fixed {
-    left: 0;
-    right: 0;
-    position: fixed;
-    background-color: $m-mainnav--fixed-color-background;
-    border-bottom: 1px solid darken($m-mainnav--fixed-color-background, 10%);
+				> strong {
+					display: block;
 
-    > ul {
-      margin-top: 0;
+					> a {
+						color: $m-mainnav__item-color-font;
+						text-decoration: none;
+					}
+				}
 
-      > .m-mainnav__logo{
-        float: left;
+				> img {
+					width: 100%;
+					max-width: $m-mainnav__item--logo-width-max;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
 
-        > strong {
-          display: none;
-        }
+			&.m-mainnav__item {
+				padding-top: 8px;
 
-        > img {
-          display: none;
-        }
-      }
-    }
+				// Hide the navigation links by default
+				display: none;
 
-    @include breakpoint(max-width $m-mainnav-breakpoint-tablet){
-      &:not(.m-mainnav--active) {
-        transform: translateY(-100%);
-        padding-top: 0;
-        padding-bottom: 0;
-        border-bottom: 0;
-      }
-    }
-  }
+				> a {
+					height: $m-mainnav__item-height;
+					display: block;
+					position: relative;
+					text-align: center;
+					font-size: 18px;
+					font-weight: thin;
+					letter-spacing: 2px;
+					color: $m-mainnav__item-color-font;
+					text-decoration: none;
+					overflow-x: hidden;
+					transition: $m-mainnav-transition-time ease-out;
 
-  &__logo{
-    height: auto;
-    position: relative;
-    text-align: center;
+					&:before, &:after {
+						content: "";
+						width: 100%;
+						height: 1px;
+						display: block;
+						position: absolute;
+						bottom: 0;
+						background-color: $m-mainnav__item-color-font;
+					}
 
-    > strong {
-      display: block;
-      > a {
-        color: $m-mainnav__item-color-font;
-        text-decoration: none;
-      }
-    }
-    
-    > img {
-      width: 100%;
-      max-width: $m-mainnav__item--logo-width-max;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+					&:after {
+						background-color: $m-mainnav__item-color-font--hover;
+						transition: height $m-mainnav-transition-time ease-in-out;
+						visibility: hidden;
+					}
 
-  &__item{
-    padding-top: 8px;
-    display: none;  // Hide the navigation links by default
+					&:hover {
+						letter-spacing: 2.75px;
+						color: $m-mainnav__item-color-font--hover;
 
-    > a {
-      height: $m-mainnav__item-height;
-      display: block;
-      position: relative;
-      text-align: center;
-      font-size: 18px;
-      font-weight: thin;
-      letter-spacing: 2px;
-      color: $m-mainnav__item-color-font;
-      text-decoration: none;
-      overflow-x: hidden;
-      transition: $base-constant-transition ease-out;
+						&:after {
+							height: 3px;
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+	}
 
-      &:before, &:after{
-        content: "";
-        width: 100%;
-        height: 1px;
-        display: block;
-        position: absolute;
-        bottom: 0;
-        background-color: $m-mainnav__item-color-font;
-      }
+	// Tablets and Desktops
+	@include susy-breakpoint($m-mainnav-breakpoint-tablet, $m-mainnav-break-tablet) {
+		> ul {
+			@include container;
 
-      &:after{
-        background-color: $m-mainnav__item-color-font--hover;
-        transition: height $base-constant-transition ease-in-out;
-        visibility: hidden;
-      }
+			> li {
+				&.m-mainnav__logo, &.m-mainnav__item {
+					@include span(1);
+				}
 
-      &:hover{
-        letter-spacing: 2.75px;
-        color: $m-mainnav__item-color-font--hover;
-        &:after{
-          height: 3px;
-          visibility: visible;
-        }
-      }
-    }
-  }
+				&.m-mainnav__logo {
+					@include span(2 at ($m-mainnav__item--logo-position - 0.5) isolate);
 
-  // Tablets and Desktops
-  @include susy-breakpoint($m-mainnav-breakpoint-tablet, $m-mainnav-break-tablet) {
-    > ul {
-      @include container();
-    }
-    
-    &--fixed{
-      display: block;
+					float: none;
 
-      > ul {
-        .m-mainnav__logo{
-          bottom: $m-mainnav-padding;
+					> img {
+						margin-bottom: $m-mainnav__item--logo-margin-bottom;
+					}
+				}
 
-          > img {
-            width: auto;
-            height: $m-mainnav__item-height + 3 * $m-mainnav-padding;
-            display: inline-block;
-          }
-        }
-      }
-    }
+				&.m-mainnav__item {
+					display: inline-block;
 
-    &__logo, &__item{
-      @include span(1);
-    }
-  
-    &__logo{
-      @include span(2 at $m-mainnav__item--logo-position - 0.5 isolate);
-      margin-bottom: $m-mainnav__item--logo-margin-bottom;
-      float: none;
-    }
+					// Would be better if selector could be like:
+					// &--right:first-of-type { ... }
+					// I'm not too sure why this doesn't work.
+					&:nth-of-type(#{$m-mainnav__item--logo-position + 1}) {
+						@include push(1);
+					}
 
-    &__item{
-      display: inline-block;
+					&:first-child {
+						@include first;
+					}
 
-      &:nth-child(#{$m-mainnav__item--logo-position + 1}){
-        @include push(1);
-      }
+					&:last-child {
+						@include last;
+					}
 
-      &:first-child{
-        @include first();
-      }
+					&.m-mainnav__item--left, &.m-mainnav__item--right {
+						> a {
+							&:after {
+								transition: height none;
+								transition: transform $m-mainnav-transition-time ease-out;
+							}
+						}
+					}
 
-      &:last-child{
-        @include last();
-      }
+					&.m-mainnav__item--left {
+						> a {
+							text-align: left;
+							padding-left: $m-mainnav__item-padding-tablet;
 
-      &--left, &--right{
-        > a {
-          &:after{
-            transition: height none;
-            transition: transform $base-constant-transition ease-out;
-          }
-        }
-      }
+							&:before {
+								transform: translateX(-$m-mainnav__item-padding-tablet);
+							}
 
-      &--left{
-        > a {
-          text-align: left;
-          padding-left: $m-mainnav__item-padding-tablet;
+							&:after {
+								transform: translateX(-100%);
+							}
 
-          &:before{
-            transform: translateX(-$m-mainnav__item-padding-tablet);
-          }
+							&:hover {
+								&:after {
+									transform: translateX(-$m-mainnav__item-padding-tablet);
+								}
+							}
+						}
+					}
 
-          &:after{
-            transform: translateX(-100%);
-          }
+					&.m-mainnav__item--right {
+						> a {
+							text-align: right;
+							padding-right: $m-mainnav__item-padding-tablet;
 
-          &:hover{
-            &:after{
-              transform: translateX(-$m-mainnav__item-padding-tablet);
-            }
-          }
-        }
-      }
-      &--right{
-        > a {
-          padding-right: $m-mainnav__item-padding-tablet;
-          text-align: right;
+							&:before {
+								transform: translateX($m-mainnav__item-padding-tablet);
+							}
 
-          &:before{
-            transform: translateX($m-mainnav__item-padding-tablet);
-          }
+							&:after {
+								transform: translateX(100%);
+							}
 
-          &:after{
-            transform: translateX(100%);
-          }
+							&:hover {
+								&:after {
+									transform: translateX($m-mainnav__item-padding-tablet);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
-          &:hover{
-            &:after{
-              transform: translateX($m-mainnav__item-padding-tablet);
-            }
-          }
-        }
-      }
-    }
-  }
+// Mobile devices must click the activate button
+.m-mainnav--active {
+	> ul > li {
+		.m-mainnav__item {
+			display: block;
+		}
+	}
+}
+
+// User has scrolled past the header
+.m-mainnav--fixed {
+	left: 0;
+	right: 0;
+	position: fixed;
+	background-color: $m-mainnav--fixed-color-background;
+	border-bottom: 1px solid darken($m-mainnav--fixed-color-background, 10%);
+
+	> ul {
+		margin-top: 0;
+
+		> li {
+			&.m-mainnav__item > a {
+				color: $m-mainnav--fixed__item-color-font;
+
+				&:hover {
+					color: $m-mainnav--fixed__item-color-font--hover;
+
+					&:before, &:after {
+						background-color: $m-mainnav--fixed__item-color-font--hover;
+					}
+				}
+
+				&:before, &:after {
+					background-color: $m-mainnav--fixed__item-color-font;
+				}
+			}
+
+			&.m-mainnav__logo {
+				float: left;
+
+				> strong, img {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(max-width $m-mainnav-breakpoint-tablet) {
+		&:not(.m-mainnav--active) {
+			transform: translateY(-100%);
+			padding-top: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+	}
+
+
+	@include susy-breakpoint($m-mainnav-breakpoint-tablet, $m-mainnav-break-tablet) {
+		display: block;
+
+		> ul > li {
+			&.m-mainnav__logo {
+				bottom: $m-mainnav-padding;
+
+				> img {
+					width: auto;
+					height: $m-mainnav__item-height + 3 * $m-mainnav-padding;
+					display: inline-block;
+				}
+			}
+		}
+	}
 }

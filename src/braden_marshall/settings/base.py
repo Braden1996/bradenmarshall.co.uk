@@ -133,6 +133,5 @@ STATICFILES_DIRS = [
 ]
 
 
-# LaTeXBook
-# Settings are defined in another file.
-# Check the import at the top of this file!
+# django.contrib.sites
+SITE_ID = 1

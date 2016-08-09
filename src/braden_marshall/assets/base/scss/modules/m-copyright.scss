@@ -11,23 +11,27 @@ $m-copyright-color-font: mix($l-site__footer-color-font, $m-copyright-color-back
 
 // Main
 .m-copyright {
-  height: $m-copyright-border-width;
-  line-height: height;
-  text-align: center;
-  background-color: $m-copyright-color-background;
+	height: $m-copyright-border-width;
+	line-height: height;
+	text-align: center;
+	background-color: $m-copyright-color-background;
 
-  @include breakpoint($m-copyright-breakpoint-tablet) {
-    height: $m-copyright-border-width--tablet;
-    line-height: $m-copyright-border-width--tablet;
-  }
-  &, &__name {
-    color: $m-copyright-color-font;
-  }
-  &__name {
-    text-decoration: none;
-    &:hover {
-      font-weight: bold;
-      color: darken($m-copyright-color-font, 20%);
-    }
-  }
+	@include breakpoint($m-copyright-breakpoint-tablet) {
+		height: $m-copyright-border-width--tablet;
+		line-height: $m-copyright-border-width--tablet;
+	}
+
+
+	&.m-copyright, &.m-copyright__name {
+		color: $m-copyright-color-font;
+	}
+
+	&.m-copyright__name {
+		text-decoration: none;
+
+		&:hover {
+			font-weight: bold;
+			color: darken($m-copyright-color-font, 20%);
+		}
+	}
 }
