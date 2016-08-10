@@ -1,3 +1,3 @@
-var gulp = require("gulp");
+const gulp = require('gulp');
 
-gulp.task("production", ["css:production", "javascript:production"]);
+gulp.task('production', ['css:production', 'js:production']);

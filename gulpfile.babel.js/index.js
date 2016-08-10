@@ -10,7 +10,7 @@
   you run `gulp`.
 */
 
-const requireDir = require("require-dir");
+const requireDir = require('require-dir');
 
 // Require all our tasks, including those within sub-folders.
-requireDir("./tasks/", {recurse: true});
+requireDir('./tasks/', { recurse: true });

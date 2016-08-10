@@ -1,12 +1,12 @@
-import config from "./index.js";
-import sassConfig from "../sass.js";
+import { join } from 'path';
 
-import { join } from "path";
+import config from './index.js';
+import sassConfig from '../sass.js';
 
-const { destination, source  } = config;
+const { destination, source } = config;
 const { prefixOptions } = sassConfig;
 export default {
   destination,
-  prefixOptions: prefixOptions,
-  source: join(source, "/**/css/**/*.css")
+  prefixOptions,
+  source: join(source, '/**/css/**/*.css'),
 };

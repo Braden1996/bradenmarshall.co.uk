@@ -1,3 +1,3 @@
-import gulp from "gulp";
+import gulp from 'gulp';
 
-gulp.task("watch", ["sass:watch", "javascript:watch"]);
+gulp.task('watch', ['sass:watch', 'js:watch']);

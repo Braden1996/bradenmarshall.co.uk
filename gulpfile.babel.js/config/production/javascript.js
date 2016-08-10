@@ -1,9 +1,9 @@
-import config from "./index.js";
+import { join } from 'path';
 
-import { join } from "path";
+import config from './index.js';
 
 const { destination, source } = config;
 export default {
   destination,
-  source: join(source, "/**/js/**/*.js")
+  source: join(source, '/**/js/**/*.js'),
 };
