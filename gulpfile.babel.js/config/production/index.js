@@ -1,4 +1,4 @@
 export default {
-  destination: './static/',
-  source: './static/',
+  destination: './public/',
+  source: './public/',
 };

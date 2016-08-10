@@ -12,9 +12,11 @@ export default {
   lintOptions: {},
   prefixOptions: {},
   sassOptions: {
-    indentedSyntax: true,
     imagePath: 'images',
-    includePaths: 'bower_components',
+    includePaths: [
+      './node_modules/',
+    ],
+    indentedSyntax: true,
   },
   source: join(assetPath, 'scss/main.scss'),
 };

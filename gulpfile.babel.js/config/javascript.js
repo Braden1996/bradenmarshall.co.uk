@@ -5,9 +5,9 @@ import config from './index.js';
 const { assetPath, staticPath } = config;
 export default {
   babelifyOptions: {
-    presets: ['es2015'],
-    ignore: 'bower_components',
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
+    ignore: 'node_modules',
+    presets: ['es2015', 'react'],
   },
   browserifyOptions: {
     debug: true,
@@ -20,5 +20,5 @@ export default {
     join(assetPath, '/js/**/*.{js,jsx}'),
     './gulpfile.babel.js/**/*.js',
   ],
-  source: join(assetPath, '/js/main.js'),
+  source: join(assetPath, '/js/main.jsx'),
 };

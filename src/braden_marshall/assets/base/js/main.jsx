@@ -6,4 +6,5 @@
 // require("./visuals/mainnav.js");
 // require("./visuals/bgoverlay.js");
 
-console.log("ES6 JS" + d);
+import React from 'react';
+import ReactDOM from 'react-dom';
