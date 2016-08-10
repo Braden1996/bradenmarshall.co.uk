@@ -1,8 +1,8 @@
 @function static($url) {
-	@return "/static/base/" + $url;
+	@return '/static/base/' + $url;
 }
 
-@function basecolor($name: "primary", $variant: "base") {
+@function basecolor($name: 'primary', $variant: 'base') {
 	$color: null;
 
 	// Get the color spectrum

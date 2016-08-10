@@ -12,9 +12,9 @@ $l-site-width-max: $l-site-breakpoint-desktop;
 
 $l-site__content-border-width: 8px;
 $l-site__content-border-width--tablet: 24px;
-$l-site__content-color-font: basecolor("foreground");
-$l-site__content-color-border: basecolor("background", "light");
-$l-site__content-color-background: basecolor("background");
+$l-site__content-color-font: basecolor('foreground');
+$l-site__content-color-border: basecolor('background', 'light');
+$l-site__content-color-background: basecolor('background');
 
 $l-site__footer-margin-bottom: 96px;
 $l-site__footer-border-width: $l-site__content-border-width;
@@ -22,11 +22,11 @@ $l-site__footer-border-width--tablet: 24px;
 $l-site__footer-color-border: $l-site__content-color-border;
 $l-site__footer-color-font: $l-site__content-color-font;
 
-$l-site__header-color-font: basecolor("background");
-$l-site__header-color-font--hover: basecolor("accent");
-$l-site__header--fixed-color-font: basecolor("foreground");
-$l-site__header--fixed-color-font--hover: basecolor("accent");
-$l-site__header--fixed-color-background: basecolor("background", "light");
+$l-site__header-color-font: basecolor('background');
+$l-site__header-color-font--hover: basecolor('accent');
+$l-site__header--fixed-color-font: basecolor('foreground');
+$l-site__header--fixed-color-font--hover: basecolor('accent');
+$l-site__header--fixed-color-background: basecolor('background', 'light');
 
 // Main
 #l-site {

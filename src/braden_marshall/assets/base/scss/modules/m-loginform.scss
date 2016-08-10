@@ -14,11 +14,11 @@ $m-loginform-input-height: 40px;
 $m-loginform-input-border-radius: 5px;
 $m-loginform-input-color-background: darken($m-loginform-color-background, 2%);
 
-$m-loginform__block-color-background: basecolor("background", "dark");
-$m-loginform__block-color-font: basecolor("foreground");
+$m-loginform__block-color-background: basecolor('background', 'dark');
+$m-loginform__block-color-font: basecolor('foreground');
 
-$m-loginform__submit-color-background: basecolor("success");
-$m-loginform__submit-color-font: basecolor("foreground");
+$m-loginform__submit-color-background: basecolor('success');
+$m-loginform__submit-color-font: basecolor('foreground');
 
 // Main
 #m-loginform {

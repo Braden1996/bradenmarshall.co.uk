@@ -1,35 +1,35 @@
 // Colors
 $base-colors: (
-  "primary": (
-    "base": #434a54,
-    "light": lighten(#434a54, 10%),
-    "dark": #292f33
+  'primary': (
+    'base': #434a54,
+    'light': lighten(#434a54, 10%),
+    'dark': #292f33
   ),
-  "accent": (
-    "base": #1abc9c,
-    "light": lighten(#1abc9c, 10%),
-    "dark": #16a085
+  'accent': (
+    'base': #1abc9c,
+    'light': lighten(#1abc9c, 10%),
+    'dark': #16a085
   ),
-  "secondary": (
-    "base": #e6567a,
-    "light": lighten(#e6567a, 10%),
-    "dark": #bf4a67
+  'secondary': (
+    'base': #e6567a,
+    'light': lighten(#e6567a, 10%),
+    'dark': #bf4a67
   ),
-  "foreground": (
-    "base": #191919,
-    "light": #333333,
-    "dark": #111111,
-    "darker": #000000
+  'foreground': (
+    'base': #191919,
+    'light': #333333,
+    'dark': #111111,
+    'darker': #000000
   ),
-  "background": (
-    "base": #f8fcfc,
-    "light": #ffffff,
-    "dark": #dddddd
+  'background': (
+    'base': #f8fcfc,
+    'light': #ffffff,
+    'dark': #dddddd
   ),
-  "success": (
-    "base": #2ecc71,
-    "light": #41c87a,
-    "dark": #27ae60
+  'success': (
+    'base': #2ecc71,
+    'light': #41c87a,
+    'dark': #27ae60
   ),
 );
 

@@ -1,39 +1,39 @@
 // Normalize
-@import "normalize-css/normalize";
+@import 'normalize-css/normalize';
 
 // Mathsass
-@import "mathsass/dist/math";
+@import 'mathsass/dist/math';
 
 // Breakpoint
-@import "compass-breakpoint/stylesheets/breakpoint";
+@import 'compass-breakpoint/stylesheets/breakpoint';
 
 // Fontawesome
-@import "font-awesome/scss/font-awesome";
+@import 'font-awesome/scss/font-awesome';
 
 // Base
-@import "base/functions.scss";
-@import "base/mixins.scss";
-@import "base/config.scss";
-@import "base/base.scss";
+@import 'base/functions';
+@import 'base/mixins';
+@import 'base/config';
+@import 'base/base';
 
 // Susy
-@import "susy/sass/susy";
+@import 'susy/sass/susy';
 
 // Layout
-@import "layout/l-img.scss";
-@import "layout/l-list.scss";
-@import "layout/l-site.scss";
+@import 'layout/l-img';
+@import 'layout/l-list';
+@import 'layout/l-site';
 
 // Modules
-@import "modules/m-bgoverlay.scss";
-@import "modules/m-block.scss";
-@import "modules/m-burgermenu.scss";
-@import "modules/m-copyright.scss";
-@import "modules/m-footerrow.scss";
-@import "modules/m-hero.scss";
-@import "modules/m-loginform.scss";
-@import "modules/m-logorow.scss";
-@import "modules/m-mainnav.scss";
+@import 'modules/m-bgoverlay';
+@import 'modules/m-block';
+@import 'modules/m-burgermenu';
+@import 'modules/m-copyright';
+@import 'modules/m-footerrow';
+@import 'modules/m-hero';
+@import 'modules/m-loginform';
+@import 'modules/m-logorow';
+@import 'modules/m-mainnav';
 
 // Blog app
-@import "../../blog/scss/main.scss";
+@import '../../blog/scss/main';

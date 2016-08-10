@@ -12,7 +12,7 @@
 $m-mainnav-padding: 8px;
 $m-mainnav-transition-time: $base-constant-transition;
 
-$m-mainnav--fixed-color-shadow: basecolor("background", "dark");
+$m-mainnav--fixed-color-shadow: basecolor('background', 'dark');
 $m-mainnav--fixed-color-background: $l-site__header--fixed-color-background;
 
 $m-mainnav__item-count: 7;
@@ -83,7 +83,7 @@ $m-mainnav-break-tablet: (columns: $m-mainnav__item-count);
 					transition: $m-mainnav-transition-time ease-out;
 
 					&:before, &:after {
-						content: "";
+						content: '';
 						width: 100%;
 						height: 1px;
 						display: block;

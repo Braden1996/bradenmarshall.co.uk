@@ -9,8 +9,8 @@
 $m-burgermenu-size: 48px;
 $m-burgermenu-gutter: 8px;
 $m-burgermenu-padding: $m-burgermenu-size / 4;
-$m-burgermenu-color-background: basecolor("background", "light");
-$m-burgermenu-color-shadow: basecolor("background", "dark");
+$m-burgermenu-color-background: basecolor('background', 'light');
+$m-burgermenu-color-shadow: basecolor('background', 'dark');
 
 $m-burgermenu__part-spacing: $m-burgermenu-padding / (3 / $base-constant-golden);
 $m-burgermenu__part-height: floor($m-burgermenu-size - 2 * ($m-burgermenu-padding + $m-burgermenu__part-spacing)) / 3;
@@ -19,8 +19,8 @@ $m-burgermenu__part-color-background: $l-site__header-color-font;
 $m-burgermenu__part-offset: -($m-burgermenu__part-height + $m-burgermenu__part-spacing);
 $m-burgermenu__part-offset--hover: $m-burgermenu__part-offset - 2px;
 
-$m-burgermenu-active-class: "m-mainnav--active";
-$m-burgermenu-fixed-class: "m-mainnav--fixed";
+$m-burgermenu-active-class: 'm-mainnav--active';
+$m-burgermenu-fixed-class: 'm-mainnav--fixed';
 $m-burgermenu-hide-breakpoint: $l-site-breakpoint-tablet - 1;
 
 // Main
@@ -53,7 +53,7 @@ $m-burgermenu-hide-breakpoint: $l-site-breakpoint-tablet - 1;
 			}
 
 			&::before, &::after {
-				content: "";
+				content: '';
 				position: absolute;
 			}
 

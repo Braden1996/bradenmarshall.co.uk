@@ -3,9 +3,9 @@
  Description: A simple module to apply a gradient ontop of a background image
 */
 // Config
-$m-bgoverlay-over-bg: url(static("img/gplay.png")) fixed;
+$m-bgoverlay-over-bg: url(static('img/gplay.png')) fixed;
 $m-bgoverlay-over-opactiy: 0.2;
-$m-bgoverlay-under-bg: linear-gradient(to bottom, basecolor("primary"), basecolor("primary", "dark"));
+$m-bgoverlay-under-bg: linear-gradient(to bottom, basecolor('primary'), basecolor('primary', 'dark'));
 
 // Main
 .m-bgoverlay {
@@ -18,7 +18,7 @@ $m-bgoverlay-under-bg: linear-gradient(to bottom, basecolor("primary"), basecolo
 	background: $m-bgoverlay-under-bg;
 
 	> .m-bgoverlay__over {
-		content: "";
+		content: '';
 		position: fixed;
 		top: 0;
 		right: 0;
