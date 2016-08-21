@@ -28,5 +28,6 @@ $m-bgoverlay-under-bg: linear-gradient(to bottom, basecolor('primary'), basecolo
 		height: 100%;
 		background: $m-bgoverlay-over-bg;
 		opacity: $m-bgoverlay-over-opactiy;
+		filter: invert(100%);
 	}
 }
