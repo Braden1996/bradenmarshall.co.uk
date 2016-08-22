@@ -7,10 +7,11 @@ function onScroll(scrollpos) {
 }
 
 let scrollPos = window.scrollY || 0;
-let ticking = false;
+const ticking = false;
 window.addEventListener('scroll', () => {
   scrollPos = window.scrollY;
 
+  // Possible performance boost?
   if (window.requestAnimationFrame) {
     if (!ticking) {
       window.requestAnimationFrame(() => {
