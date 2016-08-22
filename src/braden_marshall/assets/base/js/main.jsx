@@ -1,25 +1,20 @@
-// // Libraries
-// require("modernizr");
-// require("jquery");
+// Load our react components.
+import '../../blog/js/main.jsx';
 
-// // Visuals
-// require("./visuals/mainnav.js");
-// require("./visuals/bgoverlay.js");
+// Load our utilities.
+import ready from './util/ready.js';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+// Load our CSS modules' functionality.
+import mBgOverlay from './css/m-bgoverlay.js';
 
-class CommentBox extends React.Component {
-  render() {
-    return <div className="commentBox">Hello, world! I am a CommentBox.</div>;
+
+// Call these when the DOM is ready.
+const whenReady = [
+  mBgOverlay,
+];
+
+ready(() => {
+  for (const readyCallback of whenReady) {
+    readyCallback();
   }
-}
-
-ReactDOM.render(
-  <div className="block block--fill">
-    <section className="row">
-      <CommentBox />
-    </section>
-  </div>,
-  document.getElementById('l-site__content__main')
-);
+});
