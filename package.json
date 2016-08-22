@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Braden1996/bradenmarshall.co.uk",
   "devDependencies": {
     "babel-core": "^6.13.2",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-strict-mode": "^6.11.3",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
@@ -54,6 +56,7 @@
     "normalize.css": "^4.2.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "remarkable": "^1.6.2",
     "susy": "^2.2.12"
   }
 }

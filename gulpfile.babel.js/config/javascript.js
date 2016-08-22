@@ -5,9 +5,18 @@ import config from './index.js';
 const { assetPath, staticPath } = config;
 export default {
   babelifyOptions: {
-    extensions: ['.js', '.jsx'],
+    extensions: [
+      '.js',
+      '.jsx',
+    ],
     ignore: 'node_modules',
-    presets: ['es2015', 'react'],
+    plugins: [
+      'transform-class-properties',
+    ],
+    presets: [
+      'react',
+      'es2015',
+    ],
   },
   browserifyOptions: {
     debug: true,
@@ -15,6 +24,7 @@ export default {
   destination: join(staticPath, '/js/main.js'),
   eslintOptions: {
     fix: true,
+    plugins: ['react'],
   },
   lintGlob: [
     join(assetPath, '/js/**/*.{js,jsx}'),
