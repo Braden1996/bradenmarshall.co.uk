@@ -1,12 +1,13 @@
 import { join } from 'path';
+import cssnano from 'cssnano';
 
 import config from './index.js';
-import sassConfig from '../sass.js';
 
 const { destination, source } = config;
-const { prefixOptions } = sassConfig;
 export default {
   destination,
-  prefixOptions,
+  processors: [
+    cssnano(),
+  ],
   source: join(source, '/**/css/**/*.css'),
 };

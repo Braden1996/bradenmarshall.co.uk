@@ -1,13 +1,11 @@
-import autoprefixer from 'gulp-autoprefixer';
-import cssnano from 'gulp-cssnano';
 import gulp from 'gulp';
+import postcss from 'gulp-postcss';
 
 import config from '../../config/production/css';
 
-const { destination, prefixOptions, source } = config;
+const { destination, processors, source } = config;
 
 gulp.task('css:production', () => gulp.src(source)
-	.pipe(autoprefixer(prefixOptions))
-	.pipe(cssnano())
+	.pipe(postcss(processors))
 	.pipe(gulp.dest(destination))
 );

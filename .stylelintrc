@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "stylelint-selector-bem-pattern"
+  ],
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "plugin/selector-bem-pattern": {
+       "preset": "suit"
+    },
+    "declaration-block-properties-order": "alphabetical"
+  }
+}
