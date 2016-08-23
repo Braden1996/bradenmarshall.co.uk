@@ -7,7 +7,7 @@ function onScroll(scrollpos) {
 }
 
 let scrollPos = window.scrollY || 0;
-const ticking = false;
+let ticking = false;
 window.addEventListener('scroll', () => {
   scrollPos = window.scrollY;
 

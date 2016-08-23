@@ -2,6 +2,8 @@ import { join } from 'path';
 import atImport from 'postcss-import';
 import cssnext from 'postcss-cssnext';
 import reporter from 'postcss-reporter';
+import sorting from 'postcss-sorting';
+import stylefmt from 'stylefmt';
 import stylelint from 'stylelint';
 
 // When I try to destructure this import directly, I just get undefined?
@@ -13,20 +15,23 @@ const { assetPath, staticPath } = config;
 
 export default {
   destination: join(staticPath, 'css'),
-  processors: [
-    atImport({
-      plugins: [
-        stylelint({
-          reporters: [
-            { formatter: 'string', console: true },
-          ],
-        }),
+
+  lintDestination: join(assetPath, 'css'),
+  lintProcessors: [
+    sorting({}),
+    stylefmt(),
+    stylelint({
+      reporters: [
+        { formatter: 'string', console: true },
       ],
     }),
+    reporter({ clearMessages: true }),
+  ],
+  lintSource: join(assetPath, 'css/**/*.css'),
+  processors: [
+    atImport(),
     cssnext(),
-    reporter({
-      clearMessages: true,
-    }),
+    reporter({ clearMessages: true }),
   ],
   source: join(assetPath, 'css/main.css'),
 };
