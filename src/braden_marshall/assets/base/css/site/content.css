@@ -1,0 +1,9 @@
+/** @define SiteContent */
+
+/* Style */
+.SiteContent {
+  & .SiteContent__block {
+    padding: var(--size-padding-large);
+    background-color: var(--color-background);
+  }
+}

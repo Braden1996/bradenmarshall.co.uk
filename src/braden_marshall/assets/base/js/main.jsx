@@ -6,13 +6,12 @@ import ready from './util/ready.js';
 import onScroll from './util/scroll.js';
 
 // Load our CSS modules' functionality.
-import mBgOverlay from './css/m-bgoverlay.js';
+import parallax from './css/parallax.js';
 import mMainNav from './css/m-mainnav.js';
-
 
 // Call these when the DOM is ready.
 const whenReady = [
-  () => onScroll(mBgOverlay),
+  () => onScroll(parallax),
   () => onScroll(mMainNav),
 ];
 

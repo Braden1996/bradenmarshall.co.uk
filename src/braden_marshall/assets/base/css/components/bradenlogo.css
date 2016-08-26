@@ -1,0 +1,45 @@
+/** @define BradenLogo */
+
+/* Layout */
+.BradenLogo {
+  width: 192px;
+  height: 192px;
+}
+
+/* Style */
+.BradenLogo {
+  margin-right: auto;
+  margin-left: auto;
+
+  & > .BradenLogo__svg {
+    & .BradenLogo__gFace {
+      fill: #ebc7a1;
+
+      &--mouth {
+        fill: #000;
+      }
+    }
+
+    & .BradenLogo__gHat {
+      &--crown {
+        fill: #000;
+      }
+
+      &--band {
+        fill: #141414;
+      }
+
+      &--brimback {
+        fill: #000;
+      }
+
+      &--brim {
+        fill: #141414;
+      }
+
+      &--ribbon {
+        fill: #fff;
+      }
+    }
+  }
+}

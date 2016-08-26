@@ -43,6 +43,7 @@
     "gulp-util": "^3.0.7",
     "lodash.assign": "^3.2.0",
     "postcss-cssnext": "^2.7.0",
+    "postcss-easy-import": "^1.0.1",
     "postcss-reporter": "^1.4.1",
     "postcss-sorting": "^1.6.1",
     "require-dir": "^0.3.0",

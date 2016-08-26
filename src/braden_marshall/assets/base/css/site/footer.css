@@ -1,0 +1,75 @@
+/** @define SiteFooter */
+
+/* Reset */
+.SiteFooter {
+  & > .SiteFooter__list {
+    margin-top: 0; /* Reset UL */
+    margin-bottom: 0; /* Reset UL */
+    padding-left: 0; /* Reset UL */
+    list-style: none;
+  }
+}
+
+/* Layout */
+.SiteFooter {
+  margin-bottom: var(--size-padding-large);
+
+  @media (--screen-xsmall) {
+    @media (--screen-small) {
+      & > .SiteFooter__list {
+        & > .SiteFooter__listItem {
+          flex-basis: 33.33%;
+        }
+      }
+    }
+
+    & > .SiteFooter__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > .SiteFooter__listItem {
+        flex-grow: 1;
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  & > .SiteFooter__copyright,
+  & > .SiteFooter__list {
+    padding: var(--size-padding-large);
+  }
+
+  & > .SiteFooter__copyright {
+    padding-top: 0;
+  }
+
+  & > .SiteFooter__seperator {
+    height: var(--size-padding-xlarge);
+  }
+
+  & > .SiteFooter__logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Style */
+.SiteFooter {
+  & > .SiteFooter__copyright,
+  & > .SiteFooter__list {
+    background-color: var(--color-background);
+    box-shadow: var(--shadow-medium);
+  }
+
+  & > .SiteFooter__copyright {
+    text-align: center;
+  }
+
+  & > .SiteFooter__seperator {
+    background-color: rgba(0, 0, 0, 0.25);
+
+    /* This looks awesome... if browsers supported it -_- */
+    backdrop-filter: blur(var(--size-padding-large) / 2);
+  }
+}

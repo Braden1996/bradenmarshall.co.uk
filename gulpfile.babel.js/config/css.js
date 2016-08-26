@@ -1,5 +1,5 @@
 import { join } from 'path';
-import atImport from 'postcss-import';
+import atImport from 'postcss-easy-import';
 import cssnext from 'postcss-cssnext';
 import reporter from 'postcss-reporter';
 import sorting from 'postcss-sorting';
@@ -18,7 +18,10 @@ export default {
 
   lintDestination: join(assetPath, 'css'),
   lintProcessors: [
-    sorting({}),
+    sorting({
+      'empty-lines-before-comment': 1,
+      'preserve-empty-lines-between-children-rules': true,
+    }),
     stylefmt(),
     stylelint({
       reporters: [

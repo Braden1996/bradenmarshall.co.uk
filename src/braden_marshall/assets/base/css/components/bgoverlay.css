@@ -1,0 +1,35 @@
+/** @define BGOverlay */
+
+/* Layout */
+.BGOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -100;
+
+  & > .BGOverlay__overlay {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Style */
+.BGOverlay {
+  background-color: #fcb941;
+
+  & > .BGOverlay__overlay {
+    background-image: url(http://i.imgur.com/8hvbdr0.png);
+    opacity: 0.2;
+
+    &::after {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, #fcb941, color(#fcb941 alpha(0)));
+      content: "";
+      opacity: 0.1;
+    }
+  }
+}
