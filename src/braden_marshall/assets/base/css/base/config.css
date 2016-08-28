@@ -1,4 +1,9 @@
+@import 'https://fonts.googleapis.com/css?family=Muli';
+
 :root {
+  /* Fonts */
+  --font-navigation: 'Muli', sans-serif;
+
   /* Colors */
   --color-primary: #434a54;
   --color-primary-light: color(#434a54 whiteness(10%));

@@ -18,54 +18,30 @@
             <span></span>
           </div>
           <ul class="SiteNavigation__list">
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--logo">
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_logo">
               <img class="BradenLogo" src="http://builtbybuffalo.com/assets/img/logo-plain@2x.png" />
-              <!-- <div class="BradenLogo">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-                  viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"
-                  class="BradenLogo__svg">
-                  <g id="BradenLogo__gMain">
-                    <g id="BradenLogo__gFace">
-                      <text x="24" y="67" text-anchor="end" alignment-baseline="middle" font-family="Verdana" font-size="14">{</text>
-                      <text x="75" y="67" text-anchor="start" alignment-baseline="middle" font-family="Verdana" font-size="14">}</text>
-                      <polygon points="23,57 76,57 76,90 64,100 35,100, 23,90" class="BradenLogo__gFace BradenLogo__gFace--skin"/>
-                      <g transform="translate(20,55)" class="BradenLogo__gFace BradenLogo__gFace--mouth">
-                    		<path d="M43.581,38.332c6.944,2.665,9.422-8.617,17.422-0.617c0-15.465-4.984-11.026-11.929-13.692
-                    			c-6.457-2.479-13.166-2.262-18.573,0.06c-5.408-2.323-12.116-2.54-18.574-0.06C4.983,26.688,0,22.25,0,37.714
-                    			c7.901-7.901,10.476,3.283,17.419,0.617c5.919-2.272,10.463-6.375,13.081-11.158C33.118,31.957,37.663,36.058,43.581,38.332z"/>
-                    	</g>
-                      </g>
-                    <g id="BradenLogo__gHat">
-                      <polygon points="0,53 11,52 50,50 89,52 100,53 50,54" class="BradenLogo__gHat BradenLogo__gHat--brimback"/>
-                      <polygon points="0,53 11,56 23,57 32,58 50,59 76,57 89,56 100,53" class="BradenLogo__gHat BradenLogo__gHat--brim"/>
-                      <polygon points="20,0 80,0 65,6 35,6" class="BradenLogo__gHat BradenLogo__gHat--crown"/>
-                      <polygon points="20,0 35,5 65,5 80,0 78,44 78,52 78,54 22,54 22,52 22,44" class="BradenLogo__gHat BradenLogo__gHat--band"/>
-                      <polygon points="21.5,44 50,44.5 78.5,44 78,52 50,52.5 22,52" class="BradenLogo__gHat BradenLogo__gHat--ribbon"/>
-                    </g>
-                  </g>
-                </svg> -->
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--left">
-              <a href="/#home">Home</a>
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_left">
+              <a class="SiteNavigation__textLink" href="/#home">Home</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--left">
-              <a href="/#blog">Blog</a>
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_left">
+              <a class="SiteNavigation__textLink" href="/#blog">Blog</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--left">
-              <a href="/#projects">Projects</a>
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_left">
+              <a class="SiteNavigation__textLink" href="/#projects">Projects</a>
             </li>
 
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--right">
-              <a href="/#about">About</a>
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_right">
+              <a class="SiteNavigation__textLink" href="/#about">About</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--right">
-              <a href="/#contact">Contact</a>
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_right">
+              <a class="SiteNavigation__textLink" href="/#contact">Contact</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem--right">
+            <li class="SiteNavigation__listItem SiteNavigation__listItem_right">
               {% if user.is_authenticated %}
-                <a href="{% url "account_logout" %}">Account <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <a class="SiteNavigation__textLink" href="{% url "account_logout" %}">Account <i class="fa fa-caret-down" aria-hidden="true"></i></a>
               {% else %}
-                <a href="{% url "account_login" %}">Login</a>
+                <a class="SiteNavigation__textLink" href="{% url "account_login" %}">Login</a>
               {% endif %}
             </li>
           </ul>
@@ -106,7 +82,7 @@
     </div>
 
     <div class="BGOverlay">
-      <div class="BGOverlay__overlay parallax" data-parallax="-5"></div>
+      <div class="BGOverlay__overlay parallax" data-parallax="-10"></div>
     </div>
 
     <script src="{% static 'base/js/main.js' %}" type="text/javascript"></script>
