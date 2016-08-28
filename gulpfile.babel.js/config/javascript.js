@@ -21,14 +21,14 @@ export default {
   browserifyOptions: {
     debug: true,
   },
-  destination: join(staticPath, '/js/main.js'),
+  destination: join(staticPath, 'base/js/main.js'),
   eslintOptions: {
     fix: true,
     plugins: ['react'],
   },
   lintGlob: [
-    join(assetPath, '/js/**/*.{js,jsx}'),
+    join(assetPath, '**/js/**/*.{js,jsx}'),
     './gulpfile.babel.js/**/*.js',
   ],
-  source: join(assetPath, '/js/main.jsx'),
+  source: join(assetPath, 'base/js/main.jsx'),
 };

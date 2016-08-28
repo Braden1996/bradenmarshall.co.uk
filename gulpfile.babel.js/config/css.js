@@ -14,9 +14,9 @@ import config from './index.js';
 const { assetPath, staticPath } = config;
 
 export default {
-  destination: join(staticPath, 'css'),
+  destination: join(staticPath, 'base/css'),
 
-  lintDestination: join(assetPath, 'css'),
+  lintDestination: assetPath,
   lintProcessors: [
     sorting({
       'empty-lines-before-comment': 1,
@@ -30,11 +30,11 @@ export default {
     }),
     reporter({ clearMessages: true }),
   ],
-  lintSource: join(assetPath, 'css/**/*.css'),
+  lintSource: join(assetPath, '**/css/**/*.css'),
   processors: [
     atImport(),
     cssnext(),
     reporter({ clearMessages: true }),
   ],
-  source: join(assetPath, 'css/main.css'),
+  source: join(assetPath, 'base/css/main.css'),
 };
