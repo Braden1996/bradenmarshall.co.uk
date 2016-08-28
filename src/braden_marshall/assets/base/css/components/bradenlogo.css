@@ -2,12 +2,14 @@
 
 /* Layout */
 .BradenLogo {
-  width: 192px;
-  height: 192px;
+  text-align: center;
+
+  & .BradenLogo__img {
+    width: 192px;
+    height: 192px;
+  }
 }
 
 /* Style */
-.BradenLogo {
-  margin-right: auto;
-  margin-left: auto;
-}
+/*.BradenLogo {
+}*/

@@ -14,30 +14,32 @@
     <div class="Site">
       <header class="SiteHeader">
         <nav class="SiteNavigation SiteHeader__nav" role="navigation">
-          <div class="m-burgermenu">
-            <span></span>
+          <div class="m-burgermenu"><span></span></div>
+
+          <div class="SiteNavigation__logo BradenLogo">
+            <img class="BradenLogo__img" src="http://builtbybuffalo.com/assets/img/logo-plain@2x.png" />
           </div>
-          <ul class="SiteNavigation__list">
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_logo">
-              <img class="BradenLogo" src="http://builtbybuffalo.com/assets/img/logo-plain@2x.png" />
-            </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_left">
+
+          <ul class="SiteNavigation__list SiteNavigation__list_left">
+            <li class="SiteNavigation__listItem">
               <a class="SiteNavigation__textLink" href="/#home">Home</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_left">
+            <li class="SiteNavigation__listItem">
               <a class="SiteNavigation__textLink" href="/#blog">Blog</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_left">
+            <li class="SiteNavigation__listItem">
               <a class="SiteNavigation__textLink" href="/#projects">Projects</a>
             </li>
+          </ul>
 
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_right">
+          <ul class="SiteNavigation__list SiteNavigation__list_right">
+            <li class="SiteNavigation__listItem">
               <a class="SiteNavigation__textLink" href="/#about">About</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_right">
+            <li class="SiteNavigation__listItem">
               <a class="SiteNavigation__textLink" href="/#contact">Contact</a>
             </li>
-            <li class="SiteNavigation__listItem SiteNavigation__listItem_right">
+            <li class="SiteNavigation__listItem">
               {% if user.is_authenticated %}
                 <a class="SiteNavigation__textLink" href="{% url "account_logout" %}">Account <i class="fa fa-caret-down" aria-hidden="true"></i></a>
               {% else %}
@@ -82,7 +84,7 @@
     </div>
 
     <div class="BGOverlay">
-      <div class="BGOverlay__overlay parallax" data-parallax="-10"></div>
+      <div class="BGOverlay__overlay parallax" data-parallax="-8"></div>
     </div>
 
     <script src="{% static 'base/js/main.js' %}" type="text/javascript"></script>
