@@ -141,12 +141,20 @@
 
       & > .SiteNavigation__listItem {
         & .SiteNavigation__textLink {
-          transition: background-color 125ms ease-in, letter-spacing 125ms ease-in;
+          transition: letter-spacing 125ms ease-in;
+
+          &::after {
+            padding-bottom: 1px;
+          }
 
           &:hover {
-            background-color: color(#181818 alpha(10%));
             color: black;
             letter-spacing: 2.5px;
+
+            &::after {
+              padding-bottom: 0;
+              border-bottom-width: 2px;
+            }
           }
         }
       }
