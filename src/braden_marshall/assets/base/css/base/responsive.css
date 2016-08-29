@@ -7,16 +7,26 @@
 }
 
 /* Custom, iPhone Retina */
-@custom-media --screen-xxsmall only screen and (min-width: 320px);
+@custom-media --xxsmall (width >= 320px);
+@custom-media --not-xxsmall (width < 320px);
+@custom-media --screen-xxsmall only screen and (--xxsmall);
 
 /* Extra Small Devices, Phones */
-@custom-media --screen-xsmall only screen and (min-width: 480px);
+@custom-media --xsmall (width >= 480px);
+@custom-media --not-xsmall (width < 480px);
+@custom-media --screen-xsmall only screen and (--xsmall);
 
 /* Small Devices, Tablets */
-@custom-media --screen-small only screen and (min-width: 768px);
+@custom-media --small (width >= 768px);
+@custom-media --not-small (width < 768px);
+@custom-media --screen-small only screen and (--small);
 
 /* Medium Devices, Desktops */
-@custom-media --screen-medium only screen and (min-width: 992px);
+@custom-media --medium (width >= 992px);
+@custom-media --not-medium (width < 992px);
+@custom-media --screen-medium only screen and (--medium);
 
 /* Large Devices, Wide Screens */
-@custom-media --screen-large only screen and (min-width: 1170px);
+@custom-media --large (width >= 1170px);
+@custom-media --not-large (width < 1170px);
+@custom-media --screen-large only screen and (--large);
