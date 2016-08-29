@@ -4,6 +4,9 @@
   /* Fonts */
   --font-navigation: 'Muli', sans-serif;
 
+  /* Font sizes */
+  --font-small: 12px;
+
   /* Colors */
   --color-primary: #434a54;
   --color-primary-light: color(#434a54 whiteness(10%));
