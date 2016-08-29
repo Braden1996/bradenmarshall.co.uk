@@ -16,7 +16,7 @@ export default class extends React.Component {
   }
 
   showPost() {
-    console.log('Showing full post');
+    return null;
   }
 
   render() {
@@ -29,7 +29,13 @@ export default class extends React.Component {
         </header>
         <section>
           <div>
-            <img className="BlogPreviewListing__img" src={picture} width="300" height="200" alt="XYZ" />
+            <img
+              className="BlogPreviewListing__img"
+              src={picture}
+              width="300"
+              height="200"
+              alt="XYZ"
+            />
           </div>
           <p>{ text }</p>
           <a href="#more">Continue reading...</a>

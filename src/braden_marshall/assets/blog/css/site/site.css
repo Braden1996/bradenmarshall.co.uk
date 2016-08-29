@@ -1,0 +1,13 @@
+/** @define BlogSite */
+
+/* Layout */
+.BlogSite {
+  @media (--screen-small) {
+    lost-utility: clearfix;
+
+    & .BlogSite__main,
+    & .BlogSite__aside {
+      lost-column: 1 / 3;
+    }
+  }
+}

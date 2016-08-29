@@ -1,8 +1,14 @@
 import React from 'react';
 
+import classNames from 'classnames';
+
 import PreviewListing from './preview_listing.jsx';
 
 export default class extends React.Component {
+  static propTypes = {
+    className: React.PropTypes.string,
+  }
+
   constructor(props) {
     super(props);
 
@@ -36,11 +42,14 @@ export default class extends React.Component {
   }
 
   render() {
+    const { className } = this.props;
+    const classNamesStr = classNames('BlogPreviewList', className);
+
     const listingNodes = this.state.listings.map((listing) => (
       <PreviewListing key={listing.id} {...listing} />
     ));
     return (
-      <article className="BlogPreviewList">
+      <article className={classNamesStr}>
         <h1>Blog Posts</h1>
         <div>Showing <em>1</em> to <em>2</em> of 2 posts</div>
         { listingNodes }
