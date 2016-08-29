@@ -4,6 +4,11 @@
 .BlogPreviewListing {
   padding: 5px;
 
+  & > .BlogPreviewListing__img {
+    width: 100%;
+    height: auto;
+  }
+
   & > .BlogPreviewListing__header {
     & > .BlogPreviewListing__byLine {
       font-size: var(--font-small);
@@ -17,7 +22,7 @@
 
 /* Style */
 .BlogPreviewListing {
-  & .BlogPreviewListing__img {
+  & > .BlogPreviewListing__img {
     border-radius: 4px;
   }
 }
