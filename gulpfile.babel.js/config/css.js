@@ -1,6 +1,7 @@
 import { join } from 'path';
 import atImport from 'postcss-easy-import';
 import cssnext from 'postcss-cssnext';
+import lost from 'lost';
 import reporter from 'postcss-reporter';
 import sorting from 'postcss-sorting';
 import stylefmt from 'stylefmt';
@@ -39,6 +40,7 @@ export default {
   processors: [
     atImport(),
     cssnext(),
+    lost(),
     reporter({ clearMessages: true }),
   ],
   source: join(assetPath, 'base/css/main.css'),
