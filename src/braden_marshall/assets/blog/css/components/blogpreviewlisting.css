@@ -3,6 +3,16 @@
 /* Layout */
 .BlogPreviewListing {
   padding: 5px;
+
+  & > .BlogPreviewListing__header {
+    & > .BlogPreviewListing__byLine {
+      font-size: var(--font-small);
+
+      & > .BlogPreviewListing__address {
+        display: inline-block;
+      }
+    }
+  }
 }
 
 /* Style */

@@ -23,23 +23,25 @@ export default class extends React.Component {
     const { author, title, text, date, picture } = this.props;
     return (
       <article className="BlogPreviewListing">
-        <header>
-          <h1 itemProp="headline">{ title }</h1>
-          <p>By <em>{ author }</em> | Published <time dateTime={date}>{ date }</time></p>
+        <img
+          className="BlogPreviewListing__img"
+          src={picture}
+          width="300"
+          height="200"
+          alt="XYZ"
+        />
+        <header className="BlogPreviewListing__header">
+          <h1 itemProp="headline" className="BlogPreviewListing__headLine">{ title }</h1>
+          <section className="BlogPreviewListing__byLine">
+            <address className="BlogPreviewListing__address">
+              By <a rel="author" href="www.bradenmarshall.co.uk">{ author }</a>
+            </address>
+            <span className="Delimiter">•</span>
+            <time pubdate dateTime={date}>{ date }</time>
+          </section>
         </header>
-        <section>
-          <div>
-            <img
-              className="BlogPreviewListing__img"
-              src={picture}
-              width="300"
-              height="200"
-              alt="XYZ"
-            />
-          </div>
-          <p>{ text }</p>
-          <a href="#more">Continue reading...</a>
-        </section>
+        <p>{ text }</p>
+        <a href="#more">Continue reading...</a>
       </article>
     );
   }

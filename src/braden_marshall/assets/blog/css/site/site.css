@@ -2,12 +2,15 @@
 
 /* Layout */
 .BlogSite {
-  @media (--screen-small) {
+  @media (--screen-large) {
     lost-utility: clearfix;
 
-    & .BlogSite__main,
+    & .BlogSite__main {
+      lost-column: 3/4;
+    }
+
     & .BlogSite__aside {
-      lost-column: 1 / 2;
+      lost-column: 1/4;
     }
   }
 }
