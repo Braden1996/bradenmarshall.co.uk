@@ -46,12 +46,27 @@ export default class extends React.Component {
     const classNamesStr = classNames('BlogPreviewList', className);
 
     const listingNodes = this.state.listings.map((listing) => (
-      <PreviewListing key={listing.id} {...listing} />
+      <PreviewListing className="BlogPreviewList__listing" key={listing.id} {...listing} />
     ));
+
+    const startPost = 1;
+    const endPost = listingNodes.length;
+    const totalPosts = listingNodes.length;
     return (
       <article className={classNamesStr}>
-        <h1>Blog Posts</h1>
-        <div>Showing <em>1</em> to <em>2</em> of 2 posts</div>
+        <header className="BlogPreviewList__header">
+          <h1 className="BlogPreviewList__headLine">Blog Posts</h1>
+          <div className="BlogPreviewList__byLine">
+            <div className="BlogPreviewList__postCount">
+              Showing <em>{startPost}</em> to <em>{endPost}</em> of {totalPosts} posts
+            </div>
+            <div className="BlogPreviewList__controls">
+              <button type="button">G</button>
+              <button type="button">L</button>
+              <input type="text" placeholder="Search blog" />
+            </div>
+          </div>
+        </header>
         { listingNodes }
       </article>
     );

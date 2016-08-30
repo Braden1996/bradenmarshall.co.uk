@@ -1,8 +1,10 @@
-@import 'https://fonts.googleapis.com/css?family=Muli';
+@import 'https://fonts.googleapis.com/css?family=Armata|Muli|Open+Sans';
 
 :root {
   /* Fonts */
-  --font-navigation: 'Muli', sans-serif;
+  --font-navigation: 'Muli', Arial, sans-serif;
+  --font-headings: 'Armata', Arial, sans-serif;
+  --font-paragraph: 'Open Sans', Helvetica, sans-serif;
 
   /* Font sizes */
   --font-small: 12px;

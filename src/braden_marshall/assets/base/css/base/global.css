@@ -4,4 +4,11 @@
 
 body {
   position: relative;
+  color: var(--color-foreground);
+  font-family: var(--font-paragraph);
+}
+
+h1 {
+  color: var(--color-foreground);
+  font-family: var(--font-headings);
 }
