@@ -1,12 +1,16 @@
 import React from 'react';
 
 import classNames from 'classnames';
+import SearchInput, { createFilter } from 'react-search-input';
 
 import PreviewListing from './preview_listing.jsx';
+
+const FILTER_KEYS = ['title'];
 
 export default class extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
+    searchFilter: React.PropTypes.string,
   }
 
   constructor(props) {
@@ -38,14 +42,24 @@ export default class extends React.Component {
       },
     ];
 
-    this.state = { listings };
+    this.state = {
+      listings,
+      searchTerm: '',
+    };
+  }
+
+  filterListings(term) {
+    this.setState({ searchTerm: term });
   }
 
   render() {
     const { className } = this.props;
     const classNamesStr = classNames('BlogPreviewList', className);
 
-    const listingNodes = this.state.listings.map((listing) => (
+    const listings = this.state.listings;
+    const filteredListings = listings.filter(createFilter(this.state.searchTerm, FILTER_KEYS));
+
+    const listingNodes = filteredListings.map((listing) => (
       <PreviewListing className="BlogPreviewList__listing" key={listing.id} {...listing} />
     ));
 
@@ -61,9 +75,13 @@ export default class extends React.Component {
               Showing <em>{startPost}</em> to <em>{endPost}</em> of {totalPosts} posts
             </div>
             <div className="BlogPreviewList__controls">
-              <button type="button">G</button>
-              <button type="button">L</button>
-              <input type="text" placeholder="Search blog" />
+              <button className="BlogPreviewList__gridButton" type="button">
+                <i className="fa fa-th" aria-hidden="true" />
+              </button>
+              <button className="BlogPreviewList__barButton" type="button">
+                <i className="fa fa-bars" aria-hidden="true" />
+              </button>
+              <SearchInput className="search-input" onChange={this.filterListings.bind(this)} />
             </div>
           </div>
         </header>

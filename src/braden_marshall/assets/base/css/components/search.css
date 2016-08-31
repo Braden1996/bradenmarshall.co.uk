@@ -1,0 +1,22 @@
+/** @define Delimiter */
+
+/* Layout */
+.Delimiter {
+  margin-right: var(--size-padding-small);
+  margin-left: var(--size-padding-small);
+
+  &_medium {
+    margin-right: var(--size-padding-medium);
+    margin-left: var(--size-padding-medium);
+  }
+
+  &_large {
+    margin-right: var(--size-padding-large);
+    margin-left: var(--size-padding-large);
+  }
+
+  &_xlarge {
+    margin-right: var(--size-padding-xlarge);
+    margin-left: var(--size-padding-xlarge);
+  }
+}

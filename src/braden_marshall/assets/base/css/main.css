@@ -1,5 +1,6 @@
 /* Normalize */
 @import "normalize.css";
+@import "font-awesome/css/font-awesome.css";
 
 /* Base */
 @import "./base/config.css";

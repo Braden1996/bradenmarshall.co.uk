@@ -4,7 +4,7 @@ import cssnext from 'postcss-cssnext';
 import lost from 'lost';
 import reporter from 'postcss-reporter';
 import sorting from 'postcss-sorting';
-import stylefmt from 'stylefmt';
+// import stylefmt from 'stylefmt';
 import stylelint from 'stylelint';
 
 import fs from 'fs';
@@ -26,9 +26,9 @@ export default {
   lintProcessors: [
     sorting(Object.assign({
       'empty-lines-before-comment': 1,
+      'empty-lines-between-media-rules': 1,
       'preserve-empty-lines-between-children-rules': true,
     }, sortingConfigObj)),
-    stylefmt(),
     stylelint({
       reporters: [
         { formatter: 'string', console: true },

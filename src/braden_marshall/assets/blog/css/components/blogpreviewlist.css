@@ -24,7 +24,10 @@
       }
 
       & > .BlogPreviewList__controls {
-        float: right;
+        & > .BlogPreviewList__searchForm {
+          width: 100%;
+          & > .BlogPreviewList__searchInput {
+        }
       }
     }
   }

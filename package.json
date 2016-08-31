@@ -62,8 +62,9 @@
     "lost": "^7.1.0",
     "normalize.css": "^4.2.0",
     "postcss-import": "^8.1.2",
-    "react-dom": "^15.3.0",
     "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-search-input": "^0.10.3",
     "remarkable": "^1.6.2"
   }
 }
