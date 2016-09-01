@@ -5,30 +5,20 @@ import config from './index.js';
 const { assetPath, staticPath } = config;
 export default {
   babelifyOptions: {
-    extensions: [
-      '.js',
-      '.jsx',
-    ],
+    extensions: ['.js'],
     ignore: 'node_modules',
-    plugins: [
-      'transform-class-properties',
-    ],
-    presets: [
-      'react',
-      'es2015',
-    ],
+    presets: ['es2015']
   },
   browserifyOptions: {
-    debug: true,
+    debug: true
   },
   destination: join(staticPath, 'base/js/main.js'),
   eslintOptions: {
-    fix: true,
-    plugins: ['react'],
+    fix: true
   },
   lintGlob: [
-    join(assetPath, '**/js/**/*.{js,jsx}'),
-    './gulpfile.babel.js/**/*.js',
+    join(assetPath, '**/js/**/*.js'),
+    './gulpfile.babel.js/**/*.js'
   ],
-  source: join(assetPath, 'base/js/main.jsx'),
+  source: join(assetPath, 'base/js/main.js')
 };

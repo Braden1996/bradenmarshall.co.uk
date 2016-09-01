@@ -18,7 +18,7 @@ const {
   eslintOptions,
   lintGlob,
   source,
-  sourcemapDest,
+  sourcemapDest
 } = config;
 
 const destBase = basename(destination);

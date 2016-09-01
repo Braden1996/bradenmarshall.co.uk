@@ -13,7 +13,7 @@ const { browserifyOptions, source } = config;
 gulp.task('js:watch', ['js:lint'], () => {
   let bundler = browserify(source, assign({
     cache: {},
-    packageCache: {},
+    packageCache: {}
   }, browserifyOptions));
 
   bundler = prepareBundle(bundler);

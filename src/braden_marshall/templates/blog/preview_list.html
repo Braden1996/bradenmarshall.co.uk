@@ -1,0 +1,20 @@
+<article className={classNamesStr}>
+  <header className="BlogPreviewList__header">
+    <h1 className="BlogPreviewList__headLine">Blog Posts</h1>
+    <div className="BlogPreviewList__byLine">
+      <div className="BlogPreviewList__postCount">
+        Showing <em>{startPost}</em> to <em>{endPost}</em> of {totalPosts} posts
+      </div>
+      <div className="BlogPreviewList__controls">
+        <button className="BlogPreviewList__gridButton" type="button">
+          <i className="fa fa-th" aria-hidden="true" />
+        </button>
+        <button className="BlogPreviewList__barButton" type="button">
+          <i className="fa fa-bars" aria-hidden="true" />
+        </button>
+        <SearchInput className="search-input" onChange={this.filterListings.bind(this)} />
+      </div>
+    </div>
+  </header>
+  { listingNodes }
+</article>

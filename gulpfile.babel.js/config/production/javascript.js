@@ -5,5 +5,5 @@ import config from './index.js';
 const { destination, source } = config;
 export default {
   destination,
-  source: join(source, '/**/js/**/*.js'),
+  source: join(source, '/**/js/**/*.js')
 };

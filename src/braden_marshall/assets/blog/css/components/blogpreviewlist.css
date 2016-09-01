@@ -26,7 +26,9 @@
       & > .BlogPreviewList__controls {
         & > .BlogPreviewList__searchForm {
           width: 100%;
+
           & > .BlogPreviewList__searchInput {
+          }
         }
       }
     }

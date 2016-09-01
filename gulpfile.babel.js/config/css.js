@@ -27,21 +27,21 @@ export default {
     sorting(Object.assign({
       'empty-lines-before-comment': 1,
       'empty-lines-between-media-rules': 1,
-      'preserve-empty-lines-between-children-rules': true,
+      'preserve-empty-lines-between-children-rules': true
     }, sortingConfigObj)),
     stylelint({
       reporters: [
-        { formatter: 'string', console: true },
-      ],
+        { formatter: 'string', console: true }
+      ]
     }),
-    reporter({ clearMessages: true }),
+    reporter({ clearMessages: true })
   ],
   lintSource: join(assetPath, '**/css/**/*.css'),
   processors: [
     atImport(),
     cssnext(),
     lost(),
-    reporter({ clearMessages: true }),
+    reporter({ clearMessages: true })
   ],
-  source: join(assetPath, 'base/css/main.css'),
+  source: join(assetPath, 'base/css/main.css')
 };

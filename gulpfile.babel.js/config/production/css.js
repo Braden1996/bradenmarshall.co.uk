@@ -7,7 +7,7 @@ const { destination, source } = config;
 export default {
   destination,
   processors: [
-    cssnano(),
+    cssnano()
   ],
-  source: join(source, '/**/css/**/*.css'),
+  source: join(source, '/**/css/**/*.css')
 };

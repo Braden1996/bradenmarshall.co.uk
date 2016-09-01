@@ -12,7 +12,7 @@ import mMainNav from './css/m-mainnav.js';
 // Call these when the DOM is ready.
 const whenReady = [
   () => onScroll(parallax),
-  () => onScroll(mMainNav),
+  () => onScroll(mMainNav)
 ];
 
 ready(() => {
