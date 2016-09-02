@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # Third-party applications
     'account',  # https://github.com/pinax/django-user-accounts
     # Project applications
+    'blog'
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -13,15 +13,11 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url, include
-from django.contrib.auth.models import User
-from django.contrib import admin
-
+from django.conf.urls import url
 from django.views.generic import TemplateView
 
+from .views import BlogPostListView
+
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r"^blog/", include("blog.urls")),
-    url(r"^account/", include("account.urls")),
-    url(r'^$', TemplateView.as_view(template_name='base.html'), name='home')
+    url(r'^$', BlogPostListView.as_view(), name='blogpost-list')
 ]
