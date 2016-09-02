@@ -1,0 +1,62 @@
+/** @define Pagination */
+
+:root {
+  --Pagination-listItem-current-color: var(--color-accent);
+}
+
+/* Reset */
+.Pagination {
+  & > .Pagination__list {
+    margin-top: 0; /* Reset UL */
+    margin-bottom: 0; /* Reset UL */
+    padding-left: 0; /* Reset UL */
+    list-style: none;
+  }
+}
+
+/* Layout */
+.Pagination {
+  text-align: center;
+
+  & > .Pagination__list {
+    & > .Pagination__listItem {
+      display: inline-block;
+      padding: var(--size-padding-small);
+      min-width: 32px;
+      text-align: center;
+
+      & > .Pagination__listItemLink {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+/* Style */
+.Pagination {
+  & > .Pagination__list {
+    & > .Pagination__listItem {
+      background-color: var(--color-background-light);
+      box-shadow: var(--shadow-small);
+
+      &_current {
+        background-color: var(--color-background-dark);
+        pointer-events: none;
+
+          & > .Pagination__listItemLink {
+          color: var(--Pagination-listItem-current-color);
+        }
+      }
+
+      &_disabled {
+        cursor: not-allowed;
+      }
+
+      & > .Pagination__listItemLink {
+        text-decoration: none;
+      }
+    }
+  }
+}

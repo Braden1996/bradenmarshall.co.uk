@@ -42,21 +42,41 @@
   {% endfor %}
 
   {% if is_paginated %}
-    <div class="pagination">
-      <span class="page-links">
+    <nav class="Pagination">
+      <ul class="Pagination__list">
         {% if page_obj.has_previous %}
-          <a href="/blog?page={{ page_obj.previous_page_number }}">previous</a>
+          <li class="Pagination__listItem Pagination__listItem_previous">
+            <a class="Pagination__listItemLink" href="/blog?page={{ page_obj.previous_page_number }}">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </a>
+          </li>
+        {% else %}
+          <li class="Pagination__listItem Pagination__listItem_previous Pagination__listItem_disabled">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </li>
         {% endif %}
 
-        <span class="page-current">
-        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+        {% for item in 'xxXxx' %}
+          {% with page=forloop.counter %}
+            <li class="Pagination__listItem{% if page == page_obj.number %} Pagination__listItem_current{% endif %}">
+              <a class="Pagination__listItemLink" href="/blog?page={{ page }}">{{ page }}</a>
+            </li>
+          {% endwith %}
+        {% endfor %}
 
         {% if page_obj.has_next %}
-          <a href="/blog?page={{ page_obj.next_page_number }}">next</a>
+          <li class="Pagination__listItem Pagination__listItem_next">
+            <a  class="Pagination__listItemLink" href="/blog?page={{ page_obj.next_page_number }}">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+          </li>
+        {% else %}
+          <li class="Pagination__listItem Pagination__listItem_next Pagination__listItem_disabled">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </li>
         {% endif %}
       </span>
-    </div>
+    </nav>
   {% endif %}
 </article>
 {% endblock %}
