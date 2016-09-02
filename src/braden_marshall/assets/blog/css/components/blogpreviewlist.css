@@ -35,33 +35,23 @@
   }
 
   & > .BlogPreviewList__listing {
-    float: left;
-
-    &:not(:last-of-type) {
-      &::after {
-        display: block;
-        float: right;
-        margin-top: var(--BlogPreviewList-seperator-margin);
-        margin-right: auto;
-        margin-bottom: var(--BlogPreviewList-seperator-margin);
-        margin-left: auto;
-        width: var(--BlogPreviewList-seperator-width);
-        height: var(--BlogPreviewList-seperator-height);
-        content: "";
-      }
+    &:not(:last-of-type)::after {
+      display: block;
+      float: right;
+      margin-top: var(--BlogPreviewList-seperator-margin);
+      margin-right: auto;
+      margin-bottom: var(--BlogPreviewList-seperator-margin);
+      margin-left: auto;
+      width: var(--BlogPreviewList-seperator-width);
+      height: var(--BlogPreviewList-seperator-height);
+      content: "";
     }
   }
 }
 
 /* Style */
 .BlogPreviewList {
-  & > .BlogPreviewList__listing {
-    float: left;
-
-    &:not(:last-of-type) {
-      &::after {
-        background-color: var(--BlogPreviewList-seperator-color);
-      }
-    }
+  & > .BlogPreviewList__listing:not(:last-of-type)::after {
+    background-color: var(--BlogPreviewList-seperator-color);
   }
 }

@@ -38,8 +38,8 @@
   }
 
   @media (--screen-small) {
-    lost-utility: clearfix;
     position: relative;
+    overflow: hidden;
 
     & > .BlogPreviewListing__header {
       float: left;
