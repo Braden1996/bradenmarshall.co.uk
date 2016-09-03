@@ -6,4 +6,4 @@ class BlogPostListView(ListView):
     """A list view for our BlogPosts..."""
     model = BlogPost
 
-    paginate_by = 2
+    paginate_by = 10
