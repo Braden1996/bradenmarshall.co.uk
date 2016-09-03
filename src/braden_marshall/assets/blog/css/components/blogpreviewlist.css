@@ -37,7 +37,6 @@
   & > .BlogPreviewList__listing {
     &:not(:last-of-type)::after {
       display: block;
-      float: right;
       margin-top: var(--BlogPreviewList-seperator-margin);
       margin-right: auto;
       margin-bottom: var(--BlogPreviewList-seperator-margin);

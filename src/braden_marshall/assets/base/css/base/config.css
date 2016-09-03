@@ -36,6 +36,7 @@
 
   /* Dimensions */
   --size-main: calc(1.618 * (1920 / 3));
+  --size-padding-xsmall: 2px;
   --size-padding-small: 4px;
   --size-padding-medium: 8px;
   --size-padding-large: 16px;

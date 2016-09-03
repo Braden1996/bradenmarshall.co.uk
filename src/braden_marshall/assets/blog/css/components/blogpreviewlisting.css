@@ -2,29 +2,29 @@
 
 /* Reset */
 .BlogPreviewListing {
-  & > .BlogPreviewListing__header {
-    & > .BlogPreviewListing__headLine {
+  & > .BlogPreviewListing__wrapper {
+    & > .BlogPreviewListing__header > .BlogPreviewListing__headLine {
       margin-top: 0;
       margin-bottom: 0;
     }
-  }
 
-  & > .BlogPreviewListing__content {
-    margin-top: 0;
-    margin-bottom: 0;
+    & > .BlogPreviewListing__content {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 }
 
 /* Layout */
 .BlogPreviewListing {
+  & > .BlogPreviewListing__img {
+    width: 100%;
+    height: auto;
+  }
+
   & > .BlogPreviewListing__header {
-    & > .BlogPreviewListing__img {
-      width: 100%;
-      height: auto;
-    }
     & > .BlogPreviewListing__byLine {
       margin-top: var(--size-padding-small);
-      margin-bottom: var(--size-padding-small);
       font-size: var(--font-small);
 
       & > .BlogPreviewListing__address {
@@ -41,47 +41,19 @@
     position: relative;
     overflow: hidden;
 
-    & > .BlogPreviewListing__header {
-      float: left;
-      width: 33.33%;
-
-      & > .BlogPreviewListing__headLine {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 33.33%;
-      }
-
-      & > .BlogPreviewListing__byLine {
-        text-align: center;
-      }
+    & > .BlogPreviewListing__img {
+      width: 256px;
     }
 
-    & > .BlogPreviewListing__header > .BlogPreviewListing__headLine,
-    & > .BlogPreviewListing__content,
-    & > .BlogPreviewListing__footer {
+    & > .BlogPreviewListing__wrapper {
+      float: right;
       padding-left: var(--size-padding-large);
-    }
+      width: calc(100% - 256px);
 
-    & > .BlogPreviewListing__content,
-    & > .BlogPreviewListing__footer {
-      margin-left: 33.33%;
-      width: 66.66%;
-    }
-
-    & > .BlogPreviewListing__footer {
-      clear: right;
-    }
-
-    /*
-      For semantic reasons, I prefer to keep headLine within the header.
-      However, this results in the headLine overlapping with our content. To
-      combat this, we do a shameful trick to try and push our content past the
-      header.
-    */
-    & > .BlogPreviewListing__content {
-      margin-top: calc(32px + var(--size-padding-medium));
-      margin-bottom: var(--size-padding-large);
+      & > .BlogPreviewListing__content {
+        margin-top: var(--size-padding-medium);
+        margin-bottom: var(--size-padding-medium);
+      }
     }
   }
 }
