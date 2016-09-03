@@ -22,13 +22,15 @@
     height: auto;
   }
 
-  & > .BlogPreviewListing__header {
-    & > .BlogPreviewListing__byLine {
-      margin-top: var(--size-padding-small);
-      font-size: var(--font-small);
+  & > .BlogPreviewListing__wrapper {
+    & > .BlogPreviewListing__header {
+      & > .BlogPreviewListing__byLine {
+        margin-top: var(--size-padding-small);
+        font-size: var(--font-small);
 
-      & > .BlogPreviewListing__address {
-        display: inline-block;
+        & > .BlogPreviewListing__address {
+          display: inline-block;
+        }
       }
     }
   }
