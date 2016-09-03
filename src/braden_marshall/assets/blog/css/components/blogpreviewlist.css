@@ -19,16 +19,9 @@
     & > .BlogPreviewList__byLine {
       lost-utility: clearfix;
 
-      & > .BlogPreviewList__postCount {
-
-      }
-
       & > .BlogPreviewList__controls {
         & > .BlogPreviewList__searchForm {
           width: 100%;
-
-          & > .BlogPreviewList__searchInput {
-          }
         }
       }
     }
@@ -37,10 +30,7 @@
   & > .BlogPreviewList__listing {
     &:not(:last-of-type)::after {
       display: block;
-      margin-top: var(--BlogPreviewList-seperator-margin);
-      margin-right: auto;
-      margin-bottom: var(--BlogPreviewList-seperator-margin);
-      margin-left: auto;
+      margin: var(--BlogPreviewList-seperator-margin) auto;
       width: var(--BlogPreviewList-seperator-width);
       height: var(--BlogPreviewList-seperator-height);
       content: "";

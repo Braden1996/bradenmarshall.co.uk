@@ -44,8 +44,7 @@
       &_current,
       &_disabled {
         background-color: var(--color-background-dark);
-      pointer-events: none;
-
+        pointer-events: none;
       }
 
       &_current > .Pagination__listItemLink {
