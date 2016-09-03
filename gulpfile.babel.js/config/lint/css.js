@@ -1,7 +1,7 @@
 import { join } from 'path';
 import fs from 'fs';
-import sorting from 'postcss-sorting';
 import reporter from 'postcss-reporter';
+import sorting from 'postcss-sorting';
 // import stylefmt from 'stylefmt';
 import stylelint from 'stylelint';
 
