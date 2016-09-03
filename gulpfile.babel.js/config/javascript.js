@@ -20,5 +20,5 @@ export default {
     join(assetPath, '**/js/**/*.js'),
     './gulpfile.babel.js/**/*.js'
   ],
-  source: join(assetPath, 'base/js/main.js')
+  source: join(assetPath, 'braden_marshall/js/main.js')
 };

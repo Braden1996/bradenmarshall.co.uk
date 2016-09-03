@@ -17,7 +17,9 @@
 @import "./components/bgoverlay.css";
 @import "./components/bradenlogo.css";
 @import "./components/delimiter.css";
-@import "./components/pagination.css";
+
+/* Core */
+@import "../../core/css/main.css";
 
 /* Other apps */
 @import "../../blog/css/main.css";

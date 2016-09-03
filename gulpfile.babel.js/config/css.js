@@ -43,5 +43,5 @@ export default {
     lost(),
     reporter({ clearMessages: true })
   ],
-  source: join(assetPath, 'base/css/main.css')
+  source: join(assetPath, 'braden_marshall/css/main.css')
 };

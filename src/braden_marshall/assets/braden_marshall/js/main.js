@@ -1,6 +1,3 @@
-// Load our react components.
-import '../../blog/js/main.jsx';
-
 // Load our utilities.
 import ready from './util/ready.js';
 import onScroll from './util/scroll.js';
