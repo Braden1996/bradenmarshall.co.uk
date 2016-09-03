@@ -13,12 +13,5 @@ export default {
     debug: true
   },
   destination: join(staticPath, 'base/js/main.js'),
-  eslintOptions: {
-    fix: true
-  },
-  lintGlob: [
-    join(assetPath, '**/js/**/*.js'),
-    './gulpfile.babel.js/**/*.js'
-  ],
   source: join(assetPath, 'braden_marshall/js/main.js')
 };

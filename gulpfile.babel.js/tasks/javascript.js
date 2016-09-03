@@ -1,9 +1,7 @@
 import babelify from 'babelify';
 import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
-import eslint from 'gulp-eslint';
 import gulp from 'gulp';
-import gulpIf from 'gulp-if';
 import sourcemaps from 'gulp-sourcemaps';
 import sourcestream from 'vinyl-source-stream';
 import { basename, dirname } from 'path';
@@ -11,23 +9,17 @@ import { basename, dirname } from 'path';
 import config from '../config/javascript';
 import handleErrors from '../util/handleerrors.js';
 
+
 const {
   babelifyOptions,
   browserifyOptions,
   destination,
-  eslintOptions,
-  lintGlob,
   source,
   sourcemapDest
 } = config;
 
 const destBase = basename(destination);
 const destDirs = dirname(destination);
-
-// Has ESLint fixed the file contents?
-function isFixed(file) {
-  return file.eslint != null && file.eslint.fixed;
-}
 
 // We need to do some work before we call bundle.
 export function prepareBundle(bundler) {
@@ -45,14 +37,6 @@ export function pipeBundle(bundler) {
     .pipe(sourcemaps.write(sourcemapDest))
     .pipe(gulp.dest(destDirs));
 }
-
-gulp.task('js:lint', () => gulp.src(lintGlob, { base: './' })
-  .pipe(handleErrors())
-  .pipe(eslint(eslintOptions))
-  .pipe(eslint.format())
-  .pipe(eslint.failAfterError())
-  .pipe(gulpIf(isFixed, gulp.dest('./')))
-);
 
 gulp.task('js', ['js:lint'], () => {
   let bundler = browserify(source, browserifyOptions);
