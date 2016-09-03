@@ -41,13 +41,15 @@
       background-color: var(--color-background-light);
       box-shadow: var(--shadow-small);
 
-      &_current {
+      &_current,
+      &_disabled {
         background-color: var(--color-background-dark);
-        pointer-events: none;
+      pointer-events: none;
 
-          & > .Pagination__listItemLink {
-          color: var(--Pagination-listItem-current-color);
-        }
+      }
+
+      &_current > .Pagination__listItemLink {
+        color: var(--Pagination-listItem-current-color);
       }
 
       &_disabled {

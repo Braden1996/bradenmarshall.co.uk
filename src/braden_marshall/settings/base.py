@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # Third-party applications
     'account',  # https://github.com/pinax/django-user-accounts
     # Project applications
+    'core',
     'blog'
 ]
 
@@ -72,7 +73,7 @@ TEMPLATES = [
                 # Third-party context-processors
                 'account.context_processors.account',
                 # Project context-processors
-            ],
+            ]
         },
     },
 ]

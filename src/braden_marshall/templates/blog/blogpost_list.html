@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load navigation from pagination %}
+
 {% block main %}
 <article class="BlogPreviewList SiteContent__block">
   <header class="BlogPreviewList__header">
@@ -42,41 +44,7 @@
   {% endfor %}
 
   {% if is_paginated %}
-    <nav class="Pagination">
-      <ul class="Pagination__list">
-        {% if page_obj.has_previous %}
-          <li class="Pagination__listItem Pagination__listItem_previous">
-            <a class="Pagination__listItemLink" href="/blog?page={{ page_obj.previous_page_number }}">
-              <i class="fa fa-chevron-left" aria-hidden="true"></i>
-            </a>
-          </li>
-        {% else %}
-          <li class="Pagination__listItem Pagination__listItem_previous Pagination__listItem_disabled">
-            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-          </li>
-        {% endif %}
-
-        {% for item in 'xxXxx' %}
-          {% with page=forloop.counter %}
-            <li class="Pagination__listItem{% if page == page_obj.number %} Pagination__listItem_current{% endif %}">
-              <a class="Pagination__listItemLink" href="/blog?page={{ page }}">{{ page }}</a>
-            </li>
-          {% endwith %}
-        {% endfor %}
-
-        {% if page_obj.has_next %}
-          <li class="Pagination__listItem Pagination__listItem_next">
-            <a  class="Pagination__listItemLink" href="/blog?page={{ page_obj.next_page_number }}">
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </li>
-        {% else %}
-          <li class="Pagination__listItem Pagination__listItem_next Pagination__listItem_disabled">
-            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-          </li>
-        {% endif %}
-      </span>
-    </nav>
+    {% navigation page_obj '/blog?page=' %}
   {% endif %}
 </article>
 {% endblock %}
