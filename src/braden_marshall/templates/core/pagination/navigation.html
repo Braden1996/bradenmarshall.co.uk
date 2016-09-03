@@ -5,7 +5,7 @@
           <li class="Pagination__listItem">&hellip;</li>
         {% else %}
           <li class="Pagination__listItem{% if page == None %} Pagination__listItem_disabled{% elif page == page_current %} Pagination__listItem_current{% endif %}">
-            <a class="Pagination__listItemLink" href="/blog?page={{ page }}">
+            <a class="Pagination__listItemLink" href="{{ url }}{{ page }}">
               {% if forloop.counter == 1  %}
                 <i class="fa fa-chevron-left" aria-hidden="true"></i>
               {% elif forloop.counter == page_list|length  %}

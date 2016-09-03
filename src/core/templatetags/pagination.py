@@ -43,6 +43,7 @@ def navigation(page_obj, url, outer_size=2, inner_size=2):
     page_list.append(next_page)
 
     return {
+        "url": url,
         "page_list": page_list,
         "page_current": page_obj.number,
         "outer_size": outer_size,
