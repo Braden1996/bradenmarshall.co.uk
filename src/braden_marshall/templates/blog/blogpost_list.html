@@ -38,7 +38,7 @@
             </header>
             <p class="BlogPreviewListing__content">{{ blog_post.excerpt }}</p>
             <footer class="BlogPreviewListing__footer">
-              <a href="#more">Continue reading...</a>
+              <a href="{% url 'blogpost-detail' blog_post.slug %}">Continue reading...</a>
             </footer>
           </div>
         </article>

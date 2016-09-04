@@ -1,3 +1,5 @@
+# TODO:
+#   - 'prepopulated_fields = {"slug": ("title",)}'
 from django.contrib import admin
 
 from .models import BlogPost

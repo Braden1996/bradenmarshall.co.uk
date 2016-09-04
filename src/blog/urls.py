@@ -16,8 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.views.generic import TemplateView
 
-from .views import BlogPostListView
+from .views import BlogPostDetailView, BlogPostListView
 
 urlpatterns = [
-    url(r'^$', BlogPostListView.as_view(), name='blogpost-list')
+    url(r'^$', BlogPostListView.as_view(), name='blogpost-list'),
+    url(r'^(?P<slug>[-\w\d]+)/$', BlogPostDetailView.as_view(), name='blogpost-detail')
 ]
