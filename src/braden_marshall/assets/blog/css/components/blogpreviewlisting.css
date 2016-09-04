@@ -1,68 +1,62 @@
 /** @define BlogPreviewListing */
 
 /* Reset */
-.BlogPreviewListing {
-  & > .BlogPreviewListing__wrapper {
-    & > .BlogPreviewListing__header > .BlogPreviewListing__headLine {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+.BlogPreviewListing__header {
+  & .BlogPreviewListing__headLine {
+    margin-top: 0;
+    margin-bottom: 0;
 
-    & > .BlogPreviewListing__content {
-      margin-top: 0;
-      margin-bottom: 0;
+    & > a {
+      text-decoration: none;
     }
   }
 }
 
-/* Layout */
-.BlogPreviewListing {
-  & > .BlogPreviewListing__img {
-    width: 100%;
-    height: auto;
-  }
+.BlogPreviewListing__content {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-  & > .BlogPreviewListing__wrapper {
-    & > .BlogPreviewListing__header {
-      & > .BlogPreviewListing__byLine {
-        margin-top: var(--size-padding-small);
-        font-size: var(--font-small);
+/* LAYOUT */
+.BlogPreviewListing__img {
+  width: 100%;
+  height: auto;
+}
 
-        & > .BlogPreviewListing__address {
-          display: inline-block;
-        }
-      }
+.BlogPreviewListing__header {
+  & .BlogPreviewListing__byLine {
+    margin-top: var(--size-padding-small);
+    font-size: var(--font-small);
+
+    & .BlogPreviewListing__address {
+      display: inline-block;
     }
   }
+}
 
-  & > .BlogPreviewListing__content {
-    margin-top: var(--size-padding-small);
-  }
+.BlogPreviewListing__content {
+  margin-top: var(--size-padding-medium);
+  margin-bottom: var(--size-padding-medium);
+}
 
-  @media (--screen-small) {
+@media (--screen-small) {
+  .BlogPreviewListing {
     position: relative;
     overflow: hidden;
+  }
 
-    & > .BlogPreviewListing__img {
-      width: 256px;
-    }
+  .BlogPreviewListing__img {
+    width: 256px;
+  }
 
-    & > .BlogPreviewListing__wrapper {
-      float: right;
-      padding-left: var(--size-padding-large);
-      width: calc(100% - 256px);
-
-      & > .BlogPreviewListing__content {
-        margin-top: var(--size-padding-medium);
-        margin-bottom: var(--size-padding-medium);
-      }
-    }
+  .BlogPreviewListing__wrapper {
+    float: right;
+    padding-left: var(--size-padding-large);
+    width: calc(100% - 256px);
   }
 }
 
-/* Style */
-.BlogPreviewListing {
-  & > .BlogPreviewListing__img {
-    border-radius: 4px;
-  }
+/*  STYLE */
+.BlogPreviewListing__img {
+  border-radius: 4px;
 }

@@ -24,10 +24,14 @@
 
       {% for blog_post in object_list %}
         <article class="BlogPreviewList__listing BlogPreviewListing">
-          <img class="BlogPreviewListing__img" src="https://d3ui957tjb5bqd.cloudfront.net/uploads/images/3/38/38505.homepage.jpg?1472654077" width="270" height="180" alt="XYZ" />
+          <a href="{% url 'blogpost-detail' blog_post.slug %}">
+            <img class="BlogPreviewListing__img" src="https://d3ui957tjb5bqd.cloudfront.net/uploads/images/3/38/38505.homepage.jpg?1472654077" width="270" height="180" alt="XYZ" />
+          </a>
           <div class="BlogPreviewListing__wrapper">
             <header class="BlogPreviewListing__header">
-              <h1 itemProp="headline" class="BlogPreviewListing__headLine">{{ blog_post.title }}</h1>
+              <h1 itemProp="headline" class="BlogPreviewListing__headLine">
+                <a href="{% url 'blogpost-detail' blog_post.slug %}">{{ blog_post.title }}</a>
+              </h1>
               <section class="BlogPreviewListing__byLine">
                 <address class="BlogPreviewListing__address">
                   By <a rel="author" href="www.bradenmarshall.co.uk">{{ blog_post.author }}</a>
