@@ -3,50 +3,54 @@
 {% load navigation from pagination %}
 
 {% block main %}
-<article class="BlogPreviewList SiteContent__block">
-  <header class="BlogPreviewList__header">
-    <h1 class="BlogPreviewList__headLine">Blog Posts</h1>
-    <div class="BlogPreviewList__byLine">
-      <div class="BlogPreviewList__postCount">
-        Showing <em>{{ page_obj.start_index }}</em> to <em>{{ page_obj.end_index }}</em> of {{ page_obj.paginator.count }} posts
-      </div>
-      <div class="BlogPreviewList__controls">
-        <button class="BlogPreviewList__gridButton" type="button">
-          <i class="fa fa-th" aria-hidden="true"></i>
-        </button>
-        <button class="BlogPreviewList__barButton" type="button">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div class="BlogSite SiteContent__block">
+    <article class="BlogSite__main BlogPreviewList">
+      <header class="BlogPreviewList__header">
+        <h1 class="BlogPreviewList__headLine">Blog Posts</h1>
+        <div class="BlogPreviewList__byLine">
+          <div class="BlogPreviewList__postCount">
+            Showing <em>{{ page_obj.start_index }}</em> to <em>{{ page_obj.end_index }}</em> of {{ page_obj.paginator.count }} posts
+          </div>
+          <div class="BlogPreviewList__controls">
+            <button class="BlogPreviewList__gridButton" type="button">
+              <i class="fa fa-th" aria-hidden="true"></i>
+            </button>
+            <button class="BlogPreviewList__barButton" type="button">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </header>
 
-  {% for blog_post in object_list %}
-    <article class="BlogPreviewList__listing BlogPreviewListing">
-      <img class="BlogPreviewListing__img" src="https://d3ui957tjb5bqd.cloudfront.net/uploads/images/3/38/38505.homepage.jpg?1472654077" width="270" height="180" alt="XYZ" />
-      <div class="BlogPreviewListing__wrapper">
-        <header class="BlogPreviewListing__header">
-          <h1 itemProp="headline" class="BlogPreviewListing__headLine">{{ blog_post.title }}</h1>
-          <section class="BlogPreviewListing__byLine">
-            <address class="BlogPreviewListing__address">
-              By <a rel="author" href="www.bradenmarshall.co.uk">{{ blog_post.author }}</a>
-            </address>
-            <span class="Delimiter">•</span>
-            <time pubdate dateTime="{{ blog_post.publish }}">{{ blog_post.publish }}</time>
-          </section>
-        </header>
-        <p class="BlogPreviewListing__content">{{ blog_post.excerpt }}</p>
-        <footer class="BlogPreviewListing__footer">
-          <a href="#more">Continue reading...</a>
-        </footer>
-      </div>
+      {% for blog_post in object_list %}
+        <article class="BlogPreviewList__listing BlogPreviewListing">
+          <img class="BlogPreviewListing__img" src="https://d3ui957tjb5bqd.cloudfront.net/uploads/images/3/38/38505.homepage.jpg?1472654077" width="270" height="180" alt="XYZ" />
+          <div class="BlogPreviewListing__wrapper">
+            <header class="BlogPreviewListing__header">
+              <h1 itemProp="headline" class="BlogPreviewListing__headLine">{{ blog_post.title }}</h1>
+              <section class="BlogPreviewListing__byLine">
+                <address class="BlogPreviewListing__address">
+                  By <a rel="author" href="www.bradenmarshall.co.uk">{{ blog_post.author }}</a>
+                </address>
+                <span class="Delimiter">•</span>
+                <time pubdate dateTime="{{ blog_post.publish }}">{{ blog_post.publish }}</time>
+              </section>
+            </header>
+            <p class="BlogPreviewListing__content">{{ blog_post.excerpt }}</p>
+            <footer class="BlogPreviewListing__footer">
+              <a href="#more">Continue reading...</a>
+            </footer>
+          </div>
+        </article>
+      {% empty %}
+        <p>Sorry, no blog posts exist!</p>
+      {% endfor %}
+
+      {% if is_paginated %}
+        {% navigation page_obj '/blog?page=' %}
+      {% endif %}
     </article>
-  {% empty %}
-    <p>Sorry, no blog posts exist!</p>
-  {% endfor %}
 
-  {% if is_paginated %}
-    {% navigation page_obj '/blog?page=' %}
-  {% endif %}
-</article>
+    {% include "blog/sidebar.html" %}
+  </div>
 {% endblock %}
