@@ -14,3 +14,7 @@ class BlogPost(models.Model):
     excerpt = models.CharField(max_length=210, blank=True)
     slug = models.SlugField(max_length=50, unique=True, default=None)
     body = models.TextField(default="")
+
+    class Meta:
+        """Add non-field model data"""
+        ordering = ["-publish"]
