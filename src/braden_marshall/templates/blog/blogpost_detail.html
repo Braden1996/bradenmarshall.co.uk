@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load navigation from pagination %}
+{% load markdown from markdown %}
 
 {% block main %}
   <div class="BlogSite SiteContent__block">
@@ -10,7 +10,7 @@
       </header>
 
       <article>
-        <p>{{ object.body }}</p>
+        <p>{{ object.body|markdown|safe }}</p>
       </article>
     </article>
 
