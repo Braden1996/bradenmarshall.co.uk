@@ -1,0 +1,11 @@
+{% load get_blog_categories from sidebar %}
+
+{% get_blog_categories as categories %}
+{% if categories %}
+  <header><h2>Popular Topics</h2></header>
+  <ul>
+    {% for category in categories %}
+      <li><a href="{% url 'blogpost-list-bycategory' category.slug %}">{{ category.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

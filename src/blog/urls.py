@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.views.generic import TemplateView
 
-from .views import BlogPostDetailView, BlogPostListView
+from .views import BlogPostDetailView, BlogPostListView, BlogPostListViewByCategory
 
 urlpatterns = [
     url(r'^$', BlogPostListView.as_view(), name='blogpost-list'),
+    url(r'^category/(?P<slug>[-\w\d]+)/$', BlogPostListViewByCategory.as_view(), name='blogpost-list-bycategory'),
     url(r'^(?P<slug>[-\w\d]+)/$', BlogPostDetailView.as_view(), name='blogpost-detail')
 ]
