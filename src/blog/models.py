@@ -13,6 +13,10 @@ class Category(models.Model):
         """Add non-field model data"""
         ordering = ('title',)
 
+    def __str__(self):
+        """String representation of the model"""
+        return self.title
+
 
 class BlogPost(models.Model):
     """A blog post model."""
@@ -30,3 +34,7 @@ class BlogPost(models.Model):
     class Meta:
         """Add non-field model data"""
         ordering = ["-publish"]
+
+    def __str__(self):
+        """String representation of the model"""
+        return "{0} - by '{1}'".format(self.title, self.author)
