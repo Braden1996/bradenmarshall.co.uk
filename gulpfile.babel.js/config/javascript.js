@@ -2,7 +2,7 @@ import { join } from 'path';
 
 import config from './index.js';
 
-const { assetPath, staticPath } = config;
+const { entryPath, staticPath } = config;
 export default {
   babelifyOptions: {
     extensions: ['.js'],
@@ -13,5 +13,5 @@ export default {
     debug: true
   },
   destination: join(staticPath, 'base/js/main.js'),
-  source: join(assetPath, 'braden_marshall/js/main.js')
+  source: join(entryPath, 'js/main.js')
 };

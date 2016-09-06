@@ -10,7 +10,7 @@ import config from './index.js';
 // When I try to destructure from the import directly, I just get undefined?
 // However, it seems to work if I perform the destructure post-import.
 // import { assetPath, staticPath } from "./index.js";
-const { assetPath, staticPath } = config;
+const { entryPath, staticPath } = config;
 
 export default {
   destination: join(staticPath, 'base/css'),
@@ -20,5 +20,5 @@ export default {
     lost(),
     reporter({ clearMessages: true })
   ],
-  source: join(assetPath, 'braden_marshall/css/main.css')
+  source: join(entryPath, 'css/main.css')
 };
