@@ -11,6 +11,8 @@
 /venv_bradenmarshall/
 # Collected static-files
 static/
+# Public media
+/public/media/
 # Project's database - could contain sensitive information
 *.sqlite3
 # For activation of our pyvenv environment
