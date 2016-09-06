@@ -21,6 +21,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Directory for public files, e.g. static and media.
+PUBLIC_DIR = os.path.abspath(os.path.join(BASE_DIR, os.pardir, os.pardir, 'public'))
+
 
 # Application definition
 
@@ -129,11 +132,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir, os.pardir, 'public'))
+STATIC_ROOT = os.path.join(PUBLIC_DIR, 'public')
 
 STATICFILES_DIRS = [
     'braden_marshall/static'
 ]
+
+
+# Media files
+# https://docs.djangoproject.com/en/1.10/topics/files/
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PUBLIC_DIR, 'media')
 
 
 # django.contrib.sites

@@ -30,6 +30,7 @@ class BlogPost(models.Model):
     slug = models.SlugField(max_length=50, unique=True, default=None)
     body = models.TextField(default="")
     categories = models.ManyToManyField(Category, blank=True)
+    thumbnail = models.ImageField(upload_to="blog/thumbnails/", default="blog/thumbnails/default.jpg")
 
     class Meta:
         """Add non-field model data"""

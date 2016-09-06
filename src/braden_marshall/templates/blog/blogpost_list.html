@@ -25,7 +25,7 @@
       {% for blog_post in object_list %}
         <article class="BlogPreviewList__listing BlogPreviewListing">
           <a href="{% url 'blogpost-detail' blog_post.slug %}">
-            <img class="BlogPreviewListing__img" src="https://d3ui957tjb5bqd.cloudfront.net/uploads/images/3/38/38505.homepage.jpg?1472654077" width="270" height="180" alt="XYZ" />
+            <img class="BlogPreviewListing__img" src="{{ blog_post.thumbnail.url }}" width="270" height="180" alt="XYZ" />
           </a>
           <div class="BlogPreviewListing__wrapper">
             <header class="BlogPreviewListing__header">
