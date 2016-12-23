@@ -1,6 +1,4 @@
 # My additions
-# PyCharm project development
-.idea/
 # Auxiliary files created during compilation of SASS files
 /.sass-cache/
 # Project's installed Bower components
@@ -15,10 +13,13 @@ static/
 /public/media/
 # Project's database - could contain sensitive information
 *.sqlite3
-# For activation of our pyvenv environment
-activate.bat
-# User-specific data, such as the open files and the modifications to each.
-bradenmarshall.co.uk.sublime-workspace
+# Sublime stuff
+bradenmarshall.sublime-project
+bradenmarshall.sublime-workspace
+# PyCharm project development
+.idea/
+# Linux (KDE) directory settings.
+/.directory
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
